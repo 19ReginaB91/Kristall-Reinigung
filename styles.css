@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+  --accent: #0b5bd3;           /* accent blue (tweak to your flyer) */
+  --text: #0e1a2b;             /* dark text */
+  --glass-bg: rgba(255,255,255,0.65);
+  --glass-brd: rgba(255,255,255,0.7);
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.site-header { position: sticky; top:0; z-index:50; padding: 14px 16px; }
+.nav-wrap {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px;
+}
+.brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; }
+.brand-logo { width:36px; height:36px; display:block; }
+.brand-name { font-weight:700; letter-spacing:.4px; color:var(--text); }
+
+.navbar.glass {
+  justify-self: end;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-brd);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  box-shadow: var(--shadow);
+  padding: 8px;
+}
+.nav-list { list-style:none; display:flex; gap:4px; margin:0; padding:0; }
+.nav-list a {
+  position: relative;
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:9999px;
+  text-decoration:none;
+  font-weight:600;
+  color: var(--text);
+  transition: color .2s ease, transform .15s ease;
+}
+.nav-list a:active { transform: translateY(1px) scale(0.98); } /* click press effect */
+
+/* ===HERO SECTION=== */
+.hero {
+    position: relative; /* makes .blob children position relative to this container */
+    padding: 96px 20px 120px;  /*place for Text*/
+    overflow: hidden; /* so that the "drop" does not come out with scrolling */
+    min-height: 60vh;   /* hero takes at least 60% of viewport height */
+}
+
+/* === GENERIC BLOB STYLE === */
+.blob{
+    position: absolute;  /* position blobs freely inside .hero */
+    z-index: -1;   /* send blobs behind text/content */
+    pointer-events: none;   /* prevent blobs from blocking clicks */
+    user-select: none;    /* blobs cannot be selected */
+    opacity: 0.98;    /* slightly transparent for smoother look */
+ 
+}
+
+/* === CORNER POSITIONS === */
+
+.blob-top-right  {top: -2rem; right: -1rem;}
+.blob-top-left  {top: -2rem;  left: -1rem;}
+.blob-bottom-right {bottom: -2rem;  right: -1rem;}
+.blob-bottom-left {bottom: -2rem; left: -1rem;}
+
+/* === RESPONSIVE SIZING === */
+/* clamp(min, preferred, max) ensures fluid scaling */
+/* .blob-top-right    { width: clamp(180px, 24vw, 380px); }
+.blob-top-left     { width: clamp(120px, 18vw, 280px); }
+.blob-bottom-left  { width: clamp(140px, 20vw, 320px); } */
+.blob-bottom-right {
+    right: -12vw; /* negative offset to “bleed” into the corner */
+    bottom: -10vw;
+    width: clamp(420px, 52vw, 980px);/* large, fluid size */
+    transform: rotate(-4deg);  /* slight angle like on the flyer */
+    opacity: 0.98;
+
+}
+
+/* === MOBILE OPTIMIZATION === */
+/* @media (max-width: 600px) {
+  .blob-top-right    { width: 42vw; top: -1rem; right: -0.5rem; }
+  .blob-top-left     { width: 34vw; top: -1rem; left: -0.5rem; opacity: .85; }
+  .blob-bottom-left  { width: 36vw; bottom: -1rem; left: -0.5rem; opacity: .9; }
+  .blob-bottom-right { width: 30vw; bottom: -1rem; right:-0.5rem; opacity: .9; }
+} */
+
+@media (max-width: 900px){
+    .blob-bottom-right { right: -16vw; bottom:-14vw; width: 70vw; }
+}
+
+@media (max-width: 520px){
+    .blob-bottom-right { right: -24vw; bottom:-20vw; width: 95vw; }
+}
+/* === EXTRA TWEAKS (OPTIONAL) === */
+/* rotate blob for more dynamic look */
+.blob-top-right { transform: rotate(-6deg); }
+
+/* adjust brightness (1.0 = normal, <1 darker, >1 lighter) */
+.blob-bottom-left { filter: brightness(0.95); }

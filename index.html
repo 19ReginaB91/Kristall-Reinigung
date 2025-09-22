@@ -1,40 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kristall Reinigung Wesel</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
-    <div class="new-wrap">
-      <a href="index.html" class="brand">
-    <img src="assets/images/logo.svg" alt="">
-    <span class="brand-name"></span>
-    </a>
 
-  <nav class="navbar glass">
-    <ul class="nav-list">
-        <li><a href="index.html" aria-current="page">Startseite</a></li>
-        <li><a href="leistungen.html">Leistungen</a></li>
-        <li><a href="ueber-mich.html">Über Uns</a></li>
-        <li><a href="kontakt.html"></a>Kontakt</li>
-    </ul>
-  </nav>
-  </div>
-  </header>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
+                <span>Kristall Reinigung</span>
+            </a>
+            <button class="menu-toggle">
+                <span class="hamburger"></span>
 
-  <main class="hero">
-    <!-- <img class="blob blob-top-right" src="assets/images/blob4.svg" alt="" loading="eager"> -->
-    <!-- <img class="blob blob-top-left" src="assets/images/blob2.svg" alt="" loading="lazy"> -->
-    <!-- <img class="blob blob-bottom-left" src="assets/images/blob1.svg" alt="" loading="lazy"> -->
-    <img class="blob blob-bottom-right" src="assets/images/blob3.svg" alt="" loading="lazy">
-    <h1>Glänzende Sauberkeit Ist Ein Muss!</h1>
-    <p>Gebäude- & Fensterreinigung in Wesel und Umgebung</p>
-    <a href="leistungen.html">Zu den Leistungen</a>
-  </main>
+            </button>
+            
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Startseite</a></li>
+                    <li><a href="#services">Leistungen</a></li>
+                    <li><a href="#about">Über uns</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+                    <button class="menu-toggle">
+                <span class="hamburger"></span>
 
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img src="assets/images/banner.jpg" class="bg-image" alt="Background-image">
+        <img src="assets/images/banner-text.svg" class="banner-text" alt="banner-text">
+    </section>
+
+    <section class="welcome-section">
+      <div class="hero-content container">
+            <h1 class="hero-title">Willkommen bei Kristall Reinigung</h1>
+            <p class="hero-subtitle">Kristall Reinigung ist ein zuverlässiges Familienunternehmen mit 4 Jahren Erfahrung, und wir übernehmen stolz sowohl kleine als auch große Aufgaben. Unsere Preise sind minimal und unser Service ist immer auf dem höchsten Niveau, um unsere Kunden zufrieden zu stellen. Holen Sie sich sofortige Hilfe, kontaktieren Sie uns noch heute.</p>
+            <a href="#services" class="btn">Weiter lesen</a>
+        </div>
+
+    </section>
+      <section class="info-section container">
+        <div class="info-card">
+            <img src="assets/images/Fenstern.png" alt="Fenster">
+            <h3>Glanz im Glas</h3>
+            <p>Unsere Fensterreinigung bringt Licht und Klarheit in jedes Zuhause.
+Genießen Sie den Durchblick – streifenfrei und glänzend.</p>
+            <a href="#" class="link">Weiterlesen</a>
+        </div>
+        <div class="info-card">
+            <img src="assets/images/Home.png" alt="Haus">
+            <h3>Glanz im Haus</h3>
+            <p>Ein sauberes Zuhause schenkt Ruhe und Wohlgefühl.
+Wir sorgen dafür, dass Ihre vier Wände in neuem Glanz erstrahlen.</p>
+            <a href="#" class="link">Weiterlesen</a>
+        </div>
+        <div class="info-card">
+            <img src="assets/images/office.png" alt="Gewerbe">
+            <h3>Glanz im Gewerbe</h3>
+            <p>Saubere Arbeitsräume schaffen Motivation und Vertrauen.
+Lassen Sie Ihr Büro glänzen – für Mitarbeiter und Kunden zugleich.</p>
+            <a href="#" class="link">Weiterlesen</a>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container contact-container">
+            <h2>Kontakt</h2>
+            <form action="#" method="post" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="first-name" placeholder="Vorname">
+                    <input type="text" name="last-name" placeholder="Nachname">
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Telefon">
+                    <input type="email" name="email" placeholder="E-Mail">
+                </div>
+                <div class="form-group full-width">
+                    <textarea name="message" placeholder="Nachricht"></textarea>
+                </div>
+                <button type="submit" class="btn">Senden</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <a href="#" class="logo">
+                    <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
+                </a>
+                <p> Reicher-Leute-Stege 12 | 46485  Wesel</p>
+            </div>
+            <div class="footer-nav">
+                <a href="#home">Startseite</a>
+                <a href="#services">Leistungen</a>
+                <a href="#about">Über uns</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+            <div class="footer-contacts">
+                <p>+49 176 471 560 17</p>
+                <p>kristall.reinigung.de@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Kristall Reinigung.de All rights reserved</p>
+        </div>
+    </footer>
 
 </body>
 </html>

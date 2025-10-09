@@ -387,17 +387,154 @@ background: url("assets/images/contact-bg.jpg") center/cover no-repeat;
 
 /* Стили для открытого меню на мобильных */
 .nav-container.active .navbar ul {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- height: 100vh;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- background: rgba(255, 255, 255, 0.95);
- backdrop-filter: blur(10px);
- z-index: 999;
+    position: absolute; /* Используем absolute вместо fixed, чтобы оно выпадало ниже шапки */
+    top: 100%; /* НАЧИНАЕМ ПРЯМО ПОД ШАПКОЙ */
+    left: 0;
+    width: 100%;
+    height: auto; /* МЕНЯЕМ на auto - высота будет зависеть от контента (ссылок) */
+    max-height: 400px; /* Ограничиваем максимальную высоту на всякий случай */
+    flex-direction: column;
+    justify-content: flex-start; /* Размещаем ссылки сверху, а не по центру */
+    align-items: center;
+    background: var(--light); /* Делаем фон чисто белым для лучшей читаемости */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: none; /* Убираем блюр для чистого белого фона */
+    padding: 10px 0; /* Добавляем отступы сверху/снизу */
+    z-index: 999;
+    /* Добавляем скрытие/появление */
+    overflow: hidden; 
+    transition: all 0.3s ease-out;
+}
+.nav-container.active .navbar ul li {
+    padding: 10px 0; 
+    width: 90%; /* Ссылки занимают большую часть ширины */
+    text-align: center;
+}
+
+.nav-container.active .navbar ul li a {
+    display: block;
+    padding: 10px;
+    font-size: 1.1rem;
+}
+
+/* ======================================
+   Секция "Kontakt" (отдельная страница)
+   ====================================== */
+
+.contact-page {
+    /* Чтобы контент не прятался под фиксированным хедером */
+    padding-top: 150px; 
+    padding-bottom: 80px;
+    background: var(--light); /* Светлый фон, так как это отдельная страница */
+}
+
+.contact-page::before {
+    content: none; 
+}
+
+
+
+.contact-info h2 {
+    font-size: 2rem;
+    text-align: center; /* Центрируем заголовок */
+}
+
+.contact-info .contact-intro {
+    text-align: center; /* Центрируем описание */
+    margin-bottom: 30px;
+    padding: 0 10px; /* Добавляем отступы по бокам, чтобы текст не прилипал к краю */
+}
+
+/* Убираем синюю вертикальную линию и центрируем элементы контактов (телефон, почта) */
+.contact-info .info-item {
+    border-left: none; /* Убираем вертикальную линию */
+    padding-left: 0;
+    display: flex;
+align-items: center;
+    justify-content: center; /* Центрируем иконку и текст */
+    text-align: center;
+    gap: 15px;
+    width: fit-content;
+    margin: 0 auto 30px auto;
+}
+
+.contact-form-wrapper h2 {
+    text-align: center; /* Центрируем заголовок формы */
+}
+
+/* Обязательно: делаем так, чтобы поля формы шли друг за другом */
+.contact-form .form-group {
+    flex-direction: column;
+    gap: 0;
+}
+.contact-form .form-group input {
+    margin-bottom: 20px;
+}
+
+/* Контейнер для двух колонок: Информация + Форма */
+.contact-container-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start; /* Начинаем сверху */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info, .contact-form-wrapper {
+    flex: 1; /* Обе колонки занимают равное пространство */
+}
+
+/* Стиль для блока с данными (левая колонка) */
+.contact-info h2 {
+    color: var(--dark);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.contact-info .contact-intro {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: var(--text-color);
+}
+
+.contact-info .info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--accent); /* Вертикальная синяя полоса для акцента */
+    padding-left: 15px;
+}
+
+.contact-info .info-item img {
+    width: 30px;
+    height: 30px;
+}
+
+.contact-info .info-item h3 {
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin: 0;
+}
+
+.contact-info .info-item a, 
+.contact-info .info-item p {
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Стиль для формы (правая колонка) */
+.contact-form-wrapper h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.contact-form-wrapper .contact-subtitle {
+    margin-bottom: 30px;
 }
 
 /* Медиа-запросы для адаптации */
@@ -505,14 +642,105 @@ background: url("assets/images/contact-bg.jpg") center/cover no-repeat;
     .footer-content {
         flex-direction: column;
         text-align: center;
-        gap: 20px;
+        gap: 30px;
+        padding: 20px 0;
     }
+
+    .footer-logo {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .footer-logo img {
+    height: 50px; 
+    flex-shrink: 0; 
+}
+
     .footer-nav, .footer-contacts {
         text-align: center;
         margin: 0 auto;
     }
+
     .footer-nav {
-        flex-direction: column;
-        gap: 5px;
+    flex-direction: column; /* Ссылки друг под другом */
+    gap: 10px;
+    align-items: center; 
+    width: 100%; 
+}
+
+.contact-page {
+        padding-top: 100px; /* Отступ сверху, чтобы не пряталось под шапкой */
     }
+    
+    .contact-container-wrapper {
+        flex-direction: column; /* Элементы друг под другом */
+        gap: 40px;
+        pa
+    }
+
+    .contact-info h2,
+    .contact-info .contact-intro {
+        text-align: center; /* Центрируем заголовок и интро */
+        padding: 0 15px; 
+    }
+    .contact-info .info-item {
+    display: flex; /* Используем Flexbox для иконки и текста */
+    align-items: center; 
+    gap: 15px;
+    border-left: none; /* Убираем синюю полосу */
+    padding-left: 0;
+    
+    /* Центрируем блок на экране (очень важно для мобильных) */
+    margin: 0 auto 30px auto; 
+    width: fit-content; 
+    max-width: 90%; 
+}
+
+.contact-info .info-item h3,
+.contact-info .info-item a {
+    text-align: left; /* Текст внутри блока выровнен по левому краю */
+    white-space: nowrap; /* Чтобы текст "Rufen Sie uns an" не переносился */
+}
+
+/* 2. Адаптируем заголовок формы */
+.contact-form-wrapper h2 {
+    text-align: center;
+}
+
+/* 3. Адаптируем поля ввода формы */
+.contact-form .form-group {
+    flex-direction: column; /* Поля друг под другом */
+    gap: 20px;
+}
+.contact-form {
+    margin: 0 auto; /* Центрируем форму */
+    max-width: 90%; /* Ограничиваем общую ширину */
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    width: 100%;
+}
+
+/* 4. Центрируем кнопку "Senden" (отправка) */
+.contact-form .btn {
+    align-self: flex-start; /* Прижимаем к левому краю, чтобы было ровно с полями */
+    width: auto;
+}
+.footer-contacts {
+    text-align: center;
+    width: 100%; 
+}
+
+
+.footer-bottom {
+    font-size: 0.75rem; 
+    padding: 0 15px; 
+}
+
 }

@@ -4,112 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Über uns | Kristall Reinigung Wesel</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/about.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
-                <span>Kristall Reinigung</span>
-            </a>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Startseite</a></li>
-                    <li><a href="services.html">Leistungen</a></li>
-                    <li><a href="about.html" class="active">Über uns</a></li>
-                    <li><a href="contact.html">Kontakt</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" aria-label="Toggle navigation">
-                <span class="hamburger"></span>
-            </button>
-        </div>
-    </header>
+<header class="header">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
+            <span>Kristall Reinigung</span>
+        </a>
 
-    <main>
-        <section class="about-page container">
-            
+        <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="services.html">Leistungen</a></li>
+                <li><a href="about.html" class="active">Über uns</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="about-page">
+        <div class="container">
             <h1 class="page-title">Glänzende Sauberkeit ist ein Muss.</h1>
 
             <div class="about-content-grid">
-                
                 <div class="text-block">
                     <p class="intro-paragraph">
-                        Willkommen bei Kristall Reinigung – Ihrem vertrauenswürdigen Partner für professionelle Reinigung in Wesel und Umgebung. 
-                        Wir sind ein **Familienunternehmen**, das seit **2021** kompromisslos für **Glanz und Zuverlässigkeit** steht.
+                        Willkommen bei Kristall Reinigung – Ihrem vertrauenswürdigen Partner für professionelle Reinigung in Wesel und Umgebung.
+                        Wir sind ein <strong>Familienunternehmen</strong>, das seit <strong>2021</strong> kompromisslos für
+                        <strong>Glanz und Zuverlässigkeit</strong> steht.
                     </p>
-                    
-                    <h2 class="section-subtitle">Unser Erfahrungsspektrum und Anspruch</h2>
-                    
-                    <div class="mission-points">
-                        <p><strong>🛠️ Breite Expertise:</strong> Seit unserer Gründung haben wir umfangreiche Erfahrung in allen Reinigungsbereichen gesammelt. Wir reinigen:
-                            <br>– **Privathaushalte & Wohnungen** (Wöchentlich oder Generalreinigung)
-                            <br>– **Büros & Praxen** (Regelmäßige Unterhaltsreinigung)
-                            <br>– **Treppenhäuser & Gemeinschaftsräume**
-                            <br>– **Spezialreinigung** nach Bauarbeiten (**Bauendreinigung**)
-                        </p>
-                        
-                        <p><strong>💎 Spezialisten für Glas:</strong> Wir sind Ihre Experten für glasklare Ergebnisse. Dazu gehören die Reinigung von **Fenstern, Wintergärten** und Glasflächen aller Art, damit das Licht ungehindert in Ihre Räume strömt.</p>
 
-                        <p><strong>✨ Moderne Technik und Qualität:</strong> Wir setzen auf **hochwertige, umweltschonende Reinigungsmittel** und modernstes Equipment, einschließlich **professioneller Dampfreiniger**. Das garantiert nicht nur Sauberkeit, sondern auch Hygiene bis in die Poren.</p>
-                        
-                        <p><strong>🤝 Lokale Verbundenheit:</strong> Als lokales Unternehmen kennen wir die Bedürfnisse unserer Kunden in Wesel und arbeiten flexibel, um Ihren Zeitplan zu erfüllen. Sie erhalten immer persönlichen Service.</p>
-                        
-                        <p><strong>💯 100% Zufriedenheitsgarantie:</strong> Wir sind erst zufrieden, wenn Sie es sind! Sollten Sie mit einem Bereich unserer Arbeit nicht zufrieden sein, korrigieren wir diesen **kostenlos und umgehend**.</p>
+                    <h2 class="section-subtitle">Unser Erfahrungsspektrum und Anspruch</h2>
+
+                    <div class="mission-points">
+                        <p>
+                            <strong>Breite Expertise:</strong> Seit unserer Gründung haben wir umfangreiche Erfahrung in allen Reinigungsbereichen gesammelt.
+                            Wir reinigen Privathaushalte, Wohnungen, Büros, Praxen, Treppenhäuser, Gemeinschaftsräume und übernehmen auch Spezialreinigungen nach Bauarbeiten.
+                        </p>
+
+                        <p>
+                            <strong>Spezialisten für Glas:</strong> Wir sind Ihre Experten für glasklare Ergebnisse.
+                            Dazu gehören Fenster, Wintergärten und Glasflächen aller Art, damit das Licht ungehindert in Ihre Räume strömt.
+                        </p>
+
+                        <p>
+                            <strong>Moderne Technik und Qualität:</strong> Wir setzen auf hochwertige, umweltschonende Reinigungsmittel und modernes Equipment,
+                            einschließlich professioneller Dampfreiniger. Das sorgt für Sauberkeit und Hygiene bis ins Detail.
+                        </p>
+
+                        <p>
+                            <strong>Lokale Verbundenheit:</strong> Als lokales Unternehmen kennen wir die Bedürfnisse unserer Kunden in Wesel und Umgebung.
+                            Wir arbeiten flexibel, zuverlässig und persönlich.
+                        </p>
+
+                        <p>
+                            <strong>100% Zufriedenheitsgarantie:</strong> Wir sind erst zufrieden, wenn Sie es sind.
+                            Sollte einmal etwas nicht passen, korrigieren wir es kostenlos und umgehend.
+                        </p>
                     </div>
                 </div>
-                
+
                 <div class="image-block">
-                    <img src="assets/images/about-team.jpg" alt="Kristall Reinigung Team" class="about-image">
+                    <img src="assets/images/team.jpeg" alt="Team von Kristall Reinigung" class="about-image">
                 </div>
             </div>
 
             <div class="owner-message">
                 <h3>Ein persönliches Wort der Gründerin</h3>
-                <p>"Ich habe Kristall Reinigung mit dem Versprechen **'Glänzende Sauberkeit ist ein Muss'** ins Leben gerufen. Für mich ist es eine Herzensangelegenheit, Ihnen als Nachbar einen makellosen und vertrauenswürdigen Service zu bieten. Unser Team liebt es, Räume zum Strahlen zu bringen – verlassen Sie sich auf unsere Erfahrung seit 2021."</p>
-                <p class="signature">– **Regina Batiridis**, Gründerin & Inhaberin</p>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-logo">
-                <a href="index.html" class="logo">
-                    <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
-                </a>
-                <p> Servicegebiet: Wesel & Umgebung | 46485 </p> 
-            </div>
-            <div class="footer-nav">
-                <a href="index.html">Startseite</a>
-                <a href="services.html">Leistungen</a>
-                <a href="about.html">Über uns</a>
-                <a href="contact.html">Kontakt</a>
-            </div>
-            <div class="footer-contacts">
-                <p>Telefon: +49 176 471 560 17</p>
-                <p>E-Mail: kristall.reinigung.de@gmail.com</p>
+                <p>
+                    „Ich habe Kristall Reinigung mit dem Versprechen ‘Glänzende Sauberkeit ist ein Muss’ ins Leben gerufen.
+                    Für mich ist es eine Herzensangelegenheit, Ihnen einen makellosen und vertrauenswürdigen Service zu bieten.
+                    Unser Team liebt es, Räume zum Strahlen zu bringen.“
+                </p>
+                <p class="signature">– Regina Batiridis, Gründerin & Inhaberin</p>
             </div>
         </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2024 Kristall Reinigung. Alle Rechte vorbehalten.</p>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div class="footer-logo">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
+            </a>
+            <p>Servicegebiet: Wesel & Umgebung | 46485</p>
         </div>
-    </footer>
 
-    <script>
-        // Код для бургер-меню (если он был в index.html)
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navContainer = document.querySelector('.nav-container');
+        <nav class="footer-nav">
+            <a href="index.html">Startseite</a>
+            <a href="services.html">Leistungen</a>
+            <a href="about.html">Über uns</a>
+            <a href="contact.html">Kontakt</a>
+        </nav>
 
-            menuToggle.addEventListener('click', () => {
-                navContainer.classList.toggle('active');
-            });
-        });
-    </script>
+        <div class="footer-contacts">
+            <p>Telefon: +49 176 471 560 17</p>
+            <p>E-Mail: kristall.reinigung.de@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <p>&copy; 2025 Kristall Reinigung. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+
+<script src="index.js"></script>
 </body>
 </html>

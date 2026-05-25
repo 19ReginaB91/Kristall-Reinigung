@@ -1,0 +1,220 @@
+.about-page {
+    padding-top: 150px;
+    padding-bottom: 90px;
+    position: relative;
+    background:
+        radial-gradient(circle at 12% 18%, rgba(122, 162, 223, 0.18), transparent 28%),
+        radial-gradient(circle at 88% 12%, rgba(111, 200, 240, 0.18), transparent 30%),
+        linear-gradient(180deg, #f7fbff 0%, #ffffff 52%, #eef8ff 100%);
+    overflow: hidden;
+}
+
+.about-page::before,
+.about-page::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, #ffffff, rgba(255, 255, 255, 0.35) 42%, rgba(122, 162, 223, 0.18) 75%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: inset 0 0 22px rgba(255, 255, 255, 0.9), 0 16px 35px rgba(8, 58, 128, 0.12);
+    pointer-events: none;
+}
+
+.about-page::before {
+    width: 130px;
+    height: 130px;
+    right: 8%;
+    top: 170px;
+}
+
+.about-page::after {
+    width: 70px;
+    height: 70px;
+    left: 8%;
+    bottom: 120px;
+}
+
+.page-title {
+    max-width: 900px;
+    margin: 0 auto 55px;
+    text-align: center;
+    font-family: "Montserrat", "Roboto", sans-serif;
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    line-height: 1.05;
+    color: var(--dark);
+}
+
+.about-content-grid {
+    display: grid;
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 48px;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+}
+
+.text-block {
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(122, 162, 223, 0.16);
+    border-radius: 28px;
+    padding: 42px;
+    box-shadow: 0 20px 55px rgba(8, 58, 128, 0.12);
+    backdrop-filter: blur(14px);
+}
+
+.intro-paragraph {
+    font-size: 1.16rem;
+    line-height: 1.85;
+    color: var(--text-color);
+    margin-bottom: 34px;
+}
+
+.section-subtitle {
+    font-family: "Montserrat", "Roboto", sans-serif;
+    color: var(--dark);
+    font-size: clamp(1.55rem, 3vw, 2.2rem);
+    line-height: 1.2;
+    margin-bottom: 26px;
+}
+
+.mission-points {
+    display: grid;
+    gap: 22px;
+}
+
+.mission-points p {
+    margin: 0;
+    padding: 22px 24px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff, #edf8ff);
+    border: 1px solid rgba(122, 162, 223, 0.14);
+    box-shadow: 0 10px 28px rgba(8, 58, 128, 0.08);
+    line-height: 1.75;
+}
+
+.mission-points strong {
+    color: var(--dark);
+}
+
+.image-block {
+    position: sticky;
+    top: 135px;
+}
+
+.about-image {
+    width: 100%;
+    min-height: 520px;
+    object-fit: cover;
+    display: block;
+    border-radius: 32px;
+    box-shadow: 0 24px 65px rgba(8, 58, 128, 0.18);
+    border: 10px solid rgba(255, 255, 255, 0.8);
+}
+
+.owner-message {
+    position: relative;
+    z-index: 2;
+    margin: 70px auto 0;
+    max-width: 920px;
+    padding: 42px;
+    text-align: center;
+    border-radius: 32px;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(111, 200, 240, 0.34), transparent 30%),
+        linear-gradient(135deg, var(--dark), #0b4fb3);
+    box-shadow: 0 24px 60px rgba(8, 58, 128, 0.24);
+    overflow: hidden;
+}
+
+.owner-message::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: -50px;
+    top: -70px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.owner-message h3 {
+    font-family: "Montserrat", "Roboto", sans-serif;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    margin-bottom: 18px;
+}
+
+.owner-message p {
+    position: relative;
+    margin: 0 auto 18px;
+    max-width: 760px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.signature {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+@media (max-width: 900px) {
+    .about-page {
+        padding-top: 125px;
+    }
+
+    .about-content-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    .image-block {
+        position: static;
+        order: -1;
+    }
+
+    .about-image {
+        min-height: 360px;
+    }
+
+    .text-block,
+    .owner-message {
+        padding: 30px 24px;
+        border-radius: 24px;
+    }
+}
+
+@media (max-width: 560px) {
+    .about-page {
+        padding-top: 110px;
+        padding-bottom: 65px;
+    }
+
+    .page-title {
+        margin-bottom: 34px;
+        text-align: left;
+    }
+
+    .text-block {
+        padding: 24px 18px;
+    }
+
+    .intro-paragraph {
+        font-size: 1rem;
+    }
+
+    .mission-points p {
+        padding: 18px;
+        font-size: 0.95rem;
+    }
+
+    .about-image {
+        min-height: 280px;
+        border-width: 6px;
+        border-radius: 24px;
+    }
+
+    .owner-message {
+        margin-top: 45px;
+        text-align: left;
+    }
+}

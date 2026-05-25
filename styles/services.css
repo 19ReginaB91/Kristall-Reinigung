@@ -1,0 +1,289 @@
+.services-page {
+    min-height: 100vh;
+    padding-top: 150px;
+    padding-bottom: 90px;
+    background:
+        radial-gradient(circle at 12% 16%, rgba(111, 200, 240, 0.22), transparent 28%),
+        radial-gradient(circle at 88% 12%, rgba(122, 162, 223, 0.2), transparent 30%),
+        linear-gradient(180deg, #f7fbff 0%, #ffffff 46%, #eef8ff 100%);
+    overflow: hidden;
+}
+
+.services-hero {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 54px;
+}
+
+.services-hero .section-kicker {
+    margin-bottom: 16px;
+}
+
+.services-hero h1 {
+    font-family: var(--font-heading);
+    color: var(--dark);
+    font-size: clamp(2.4rem, 5vw, 4.3rem);
+    line-height: 1.04;
+    margin-bottom: 18px;
+}
+
+.services-hero p {
+    color: var(--text-color);
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.service-accordion {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    min-height: 560px;
+    overflow: hidden;
+}
+
+.service-panel {
+    position: relative;
+    flex: 0.48;
+    min-width: 58px;
+    border: none;
+    border-radius: 34px;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: left;
+    color: #ffffff;
+    background: var(--dark);
+    box-shadow: var(--shadow-medium);
+    transition: flex 0.58s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.service-panel:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-strong);
+}
+
+.service-panel.active {
+    flex: 4.4;
+}
+
+.panel-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.42;
+    filter: blur(2px);
+    transform: scale(1.08);
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.5s ease;
+}
+
+.service-panel.active .panel-bg {
+    opacity: 0.32;
+    filter: blur(1px);
+    transform: scale(1.12);
+}
+
+.service-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(8, 58, 128, 0.28), rgba(8, 58, 128, 0.94)),
+        radial-gradient(circle at 20% 15%, rgba(111, 200, 240, 0.35), transparent 36%);
+    z-index: 1;
+}
+
+.service-panel::after {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    right: -70px;
+    top: -70px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.12) 55%, transparent 75%);
+    opacity: 0.8;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.panel-closed-label {
+    position: absolute;
+    inset: 30px 0 auto 0;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: rgba(255, 255, 255, 0.94);
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: opacity 0.25s ease, transform 0.35s ease;
+}
+
+.service-panel.active .panel-closed-label {
+    opacity: 0;
+    transform: rotate(180deg) translateY(-12px);
+    pointer-events: none;
+}
+
+.panel-content {
+    position: relative;
+    z-index: 3;
+    min-height: 560px;
+    padding: 42px 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.35s ease 0.16s, transform 0.45s ease 0.16s;
+}
+
+.service-panel.active .panel-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.panel-tag {
+    align-self: flex-start;
+    padding: 8px 14px;
+    margin-bottom: 18px;
+    border-radius: var(--radius-pill);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+}
+
+.panel-content h2 {
+    max-width: 100%;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.2vw, 3.4rem);
+    line-height: 1.02;
+    margin-bottom: 18px;
+    overflow-wrap: normal;
+}
+
+.panel-content p {
+    max-width: 620px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.75;
+    margin-bottom: 22px;
+}
+
+.panel-content ul {
+    display: grid;
+    gap: 9px;
+    list-style: none;
+}
+
+.panel-content li {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.panel-content li::before {
+    content: "✓";
+    margin-right: 8px;
+    color: #bfe9ff;
+    font-weight: 900;
+}
+
+.services-note {
+    max-width: 900px;
+    margin: 54px auto 0;
+    padding: 34px;
+    border-radius: 30px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+.services-note h2 {
+    font-family: var(--font-heading);
+    color: var(--dark);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    margin-bottom: 14px;
+}
+
+.services-note p {
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.services-cta {
+    margin-top: 24px;
+}
+
+@media (max-width: 980px) {
+    .service-accordion {
+        flex-direction: column;
+        min-height: auto;
+        overflow: visible;
+    }
+
+    .service-panel,
+    .service-panel.active {
+        flex: none;
+        min-height: 96px;
+    }
+
+    .panel-closed-label {
+        writing-mode: horizontal-tb;
+        transform: none;
+        inset: 0;
+        padding: 0 24px;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .service-panel.active .panel-closed-label {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    .panel-content {
+        min-height: 380px;
+        padding: 34px 28px;
+    }
+}
+
+@media (max-width: 560px) {
+    .services-page {
+        padding-top: 110px;
+        padding-bottom: 65px;
+    }
+
+    .services-hero {
+        text-align: left;
+        margin-bottom: 34px;
+    }
+
+    .service-panel {
+        border-radius: 26px;
+    }
+
+    .panel-content {
+        min-height: 390px;
+        padding: 30px 22px;
+    }
+
+    .panel-content h2 {
+        font-size: 2.1rem;
+    }
+
+    .services-note {
+        padding: 26px 18px;
+        border-radius: 24px;
+        text-align: left;
+    }
+}

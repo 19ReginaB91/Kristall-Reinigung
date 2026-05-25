@@ -3,114 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kristall Reinigung Wesel</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Leistungen | Kristall Reinigung Wesel</title>
+
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/services.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="header">
-        <div class="container nav-container">
-            <a href="#" class="logo">
+<header class="header">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
+            <span>Kristall Reinigung</span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="services.html" class="active">Leistungen</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="services-page">
+        <div class="container">
+
+            <div class="services-hero">
+                <span class="section-kicker">Unsere Leistungen</span>
+                <h1>Sauberkeit und Hilfe, die zu Ihrem Alltag passt.</h1>
+                <p>
+                    Ob Reinigung, Bügelservice oder kleine Unterstützung im Alltag:
+                    Wir helfen zuverlässig, gründlich und persönlich in Wesel und Umgebung.
+                </p>
+            </div>
+
+            <div class="service-accordion" aria-label="Leistungen von Kristall Reinigung">
+
+                <button class="service-panel active" type="button" aria-expanded="true">
+                    <img class="panel-bg" src="assets/images/Fenstern.png" alt="">
+                    <span class="panel-closed-label">Fenster</span>
+
+                    <div class="panel-content">
+                        <span class="panel-tag">Glasklar</span>
+                        <h2>Fensterreinigung</h2>
+                        <p>
+                            Wir reinigen Fenster, Rahmen und Glasflächen gründlich und streifenfrei,
+                            damit Ihre Räume heller, gepflegter und frischer wirken.
+                        </p>
+                        <ul>
+                            <li>Fenster und Rahmen</li>
+                            <li>Wintergärten und Glasflächen</li>
+                            <li>Privat und gewerblich</li>
+                        </ul>
+                    </div>
+                </button>
+
+                <button class="service-panel" type="button" aria-expanded="false">
+                    <img class="panel-bg" src="assets/images/Home.png" alt="">
+                    <span class="panel-closed-label">Zuhause</span>
+
+                    <div class="panel-content">
+                        <span class="panel-tag">Wohnlich</span>
+                        <h2>Haushaltsreinigung</h2>
+                        <p>
+                            Ein sauberes Zuhause schenkt Ruhe und Wohlgefühl.
+                            Wir übernehmen regelmäßige oder einmalige Reinigung nach Absprache.
+                        </p>
+                        <ul>
+                            <li>Küche, Bad und Wohnräume</li>
+                            <li>Regelmäßige Reinigung</li>
+                            <li>Grundreinigung nach Bedarf</li>
+                        </ul>
+                    </div>
+                </button>
+
+                <button class="service-panel" type="button" aria-expanded="false">
+                    <img class="panel-bg" src="assets/images/office.png" alt="">
+                    <span class="panel-closed-label">Büro</span>
+
+                    <div class="panel-content">
+                        <span class="panel-tag">Professionell</span>
+                        <h2>Büroreinigung</h2>
+                        <p>
+                            Saubere Arbeitsräume schaffen Vertrauen, Motivation und einen gepflegten Eindruck
+                            für Mitarbeitende, Kundinnen und Kunden.
+                        </p>
+                        <ul>
+                            <li>Arbeitsplätze und Oberflächen</li>
+                            <li>Flexible Reinigungszeiten</li>
+                            <li>Zuverlässige Unterhaltsreinigung</li>
+                        </ul>
+                    </div>
+                </button>
+
+                <button class="service-panel" type="button" aria-expanded="false">
+                    <img class="panel-bg" src="assets/images/stairs.jpeg" alt="">
+                    <span class="panel-closed-label">Treppen</span>
+
+                    <div class="panel-content">
+                        <span class="panel-tag">Gepflegt</span>
+                        <h2>Treppenhaus-<br>reinigung</h2>
+                        <p>
+                            Der Eingangsbereich ist der erste Eindruck eines Hauses.
+                            Wir reinigen Treppenhäuser und Gemeinschaftsflächen ordentlich und zuverlässig.
+                        </p>
+                        <ul>
+                            <li>Treppen und Geländer</li>
+                            <li>Eingangsbereiche</li>
+                            <li>Regelmäßige Pflege für Mietobjekte</li>
+                        </ul>
+                    </div>
+                </button>
+
+                <button class="service-panel" type="button" aria-expanded="false">
+                    <img class="panel-bg" src="assets/images/laundry.jpeg" alt="">
+                    <span class="panel-closed-label">Bügeln</span>
+
+                    <div class="panel-content">
+                        <span class="panel-tag">Ordentlich</span>
+                        <h2>Bügelservice</h2>
+                        <p>
+                            Wenn im Alltag wenig Zeit bleibt, übernehmen wir gerne das Bügeln Ihrer Wäsche.
+                            Sorgfältig, ordentlich und nach Absprache.
+                        </p>
+                        <ul>
+                            <li>Hemden, Blusen und Alltagswäsche</li>
+                            <li>Nach Vereinbarung</li>
+                            <li>Zuverlässige Unterstützung im Haushalt</li>
+                        </ul>
+                    </div>
+                </button>
+
+                <button class="service-panel" type="button" aria-expanded="false">
+                    <img class="panel-bg" src="assets/images/help.jpeg" alt="">
+                    <span class="panel-closed-label">Hilfe</span>
+
+                    <div class="panel-content">
+                        <span class="panel-tag">Alltag</span>
+                        <h2>Alltagshilfe</h2>
+                        <p>
+                            Nicht immer geht es nur um Reinigung. Wir unterstützen auch bei kleinen Aufgaben im Alltag,
+                            wenn Hilfe gebraucht wird.
+                        </p>
+                        <ul>
+                            <li>Aufräumen und kleine Haushaltsaufgaben</li>
+                            <li>Einkäufe nach Absprache</li>
+                            <li>Einfache Unterstützung im Alltag</li>
+                        </ul>
+                    </div>
+                </button>
+
+            </div>
+
+            <div class="services-note">
+                <h2>Sie brauchen etwas Spezielles?</h2>
+                <p>
+                    Erzählen Sie uns, wobei Sie Unterstützung benötigen. Wir besprechen gemeinsam,
+                    welche Lösung zu Ihrem Zuhause, Ihrem Büro oder Ihrem Alltag passt.
+                </p>
+                <a href="contact.html" class="btn services-cta">Angebot anfragen</a>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div class="footer-logo">
+            <a href="index.html" class="logo">
                 <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
-              <!-- <span>Kristall Reinigung</span> -->
             </a>
-            <button class="menu-toggle">
-                <span class="hamburger"></span>
-
-            </button>
-            
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#home">Startseite</a></li>
-                    <li><a href="#services">Leistungen</a></li>
-                    <li><a href="#about">Über uns</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
-                </ul>
-            </nav>
-                    
+            <p>Servicegebiet: Wesel & Umgebung | 46485</p>
         </div>
-    </header>
 
-     <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-logo">
-                <a href="#" class="logo">
-                    <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
-                </a>
-                <p>  46485  Wesel</p>
-            </div>
-            <div class="footer-nav">
-                <a href="index.html">Startseite</a>
-                <a href="services.html">Leistungen</a>
-                <a href="about.html">Über uns</a>
-                <a href="contact.html">Kontakt</a>
-            </div>
-            <div class="footer-contacts">
-                <p>+49 176 471 560 17</p>
-                <p>kristall.reinigung.de@gmail.com</p>
-            </div>
+        <nav class="footer-nav">
+            <a href="index.html">Startseite</a>
+            <a href="services.html">Leistungen</a>
+            <a href="about.html">Über uns</a>
+            <a href="contact.html">Kontakt</a>
+        </nav>
+
+        <div class="footer-contacts">
+            <p>Telefon: +49 176 471 560 17</p>
+            <p>E-Mail: kristall.reinigung.de@gmail.com</p>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 Kristall Reinigung.de All rights reserved</p>
-        </div>
-    </footer>
+    </div>
 
+    <div class="container footer-bottom">
+        <p>&copy; 2025 Kristall Reinigung. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
 
-
-    <script src="index.js"></script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-logo">
-                <a href="#" class="logo">
-                    <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
-                </a>
-                <p> Reicher-Leute-Stege 12 | 46485  Wesel</p>
-            </div>
-            <div class="footer-nav">
-                <a href="#home">Startseite</a>
-                <a href="#services">Leistungen</a>
-                <a href="#about">Über uns</a>
-                <a href="#contact">Kontakt</a>
-            </div>
-            <div class="footer-contacts">
-                <p>+49 176 471 560 17</p>
-                <p>kristall.reinigung.de@gmail.com</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Kristall Reinigung.de All rights reserved</p>
-        </div>
-    </footer>
-
-
-
-    <script src="index.js"></script>
-
+<script src="index.js"></script>
 </body>
 </html>

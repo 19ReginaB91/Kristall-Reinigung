@@ -1,0 +1,291 @@
+.contact-hero {
+    position: relative;
+    padding: 170px 0 145px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 14% 24%, rgba(191, 233, 255, 0.9), transparent 32%),
+        radial-gradient(circle at 86% 18%, rgba(122, 162, 223, 0.28), transparent 34%),
+        linear-gradient(135deg, #f7fbff 0%, #e9f7ff 52%, #ffffff 100%);
+    text-align: center;
+}
+
+.contact-hero-inner {
+    max-width: 860px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-kicker {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 28px rgba(8, 58, 128, 0.08);
+}
+
+.contact-hero h1 {
+    margin-bottom: 22px;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+}
+
+.contact-hero p {
+    color: var(--muted);
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.foam-divider {
+    position: absolute;
+    left: -4%;
+    right: -4%;
+    bottom: -2px;
+    height: 105px;
+    z-index: 3;
+    background:
+        radial-gradient(circle at 2% 82%, #ffffff 0 34px, transparent 35px),
+        radial-gradient(circle at 8% 70%, #ffffff 0 46px, transparent 47px),
+        radial-gradient(circle at 16% 82%, #ffffff 0 36px, transparent 37px),
+        radial-gradient(circle at 25% 72%, #ffffff 0 52px, transparent 53px),
+        radial-gradient(circle at 35% 84%, #ffffff 0 38px, transparent 39px),
+        radial-gradient(circle at 46% 75%, #ffffff 0 48px, transparent 49px),
+        radial-gradient(circle at 57% 83%, #ffffff 0 34px, transparent 35px),
+        radial-gradient(circle at 67% 72%, #ffffff 0 50px, transparent 51px),
+        radial-gradient(circle at 78% 83%, #ffffff 0 39px, transparent 40px),
+        radial-gradient(circle at 88% 72%, #ffffff 0 54px, transparent 55px),
+        radial-gradient(circle at 98% 84%, #ffffff 0 40px, transparent 41px),
+        linear-gradient(#ffffff, #ffffff);
+}
+
+.contact-page {
+    padding: 90px 0 105px;
+    background: #ffffff;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+    gap: 46px;
+    align-items: flex-start;
+}
+
+.contact-info,
+.contact-form-wrapper {
+    border-radius: var(--radius-large);
+    background: #ffffff;
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-info {
+    padding: 38px;
+    background:
+        radial-gradient(circle at top right, rgba(191, 233, 255, 0.48), transparent 42%),
+        #ffffff;
+}
+
+.contact-info h2,
+.contact-form-wrapper h2 {
+    margin-bottom: 16px;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: clamp(1.9rem, 3vw, 3rem);
+    line-height: 1.1;
+}
+
+.contact-intro,
+.contact-subtitle {
+    margin-bottom: 30px;
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.info-list {
+    display: grid;
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px;
+    border-radius: 20px;
+    background: var(--accent-soft);
+}
+
+.info-icon {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--dark);
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.info-item h3 {
+    margin-bottom: 4px;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+}
+
+.info-item a,
+.info-item p {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.info-item a:hover {
+    color: var(--dark);
+}
+
+.contact-note {
+    margin-top: 28px;
+    padding: 22px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, var(--dark), #0a58b8);
+    color: #ffffff;
+}
+
+.contact-note strong {
+    display: block;
+    margin-bottom: 6px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+}
+
+.contact-note p {
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.contact-form-wrapper {
+    padding: 38px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    gap: 18px;
+}
+
+.form-group.full-width {
+    width: 100%;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    flex: 1;
+    padding: 15px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    background: #ffffff;
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(122, 162, 223, 0.18);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.saved-discount-box {
+    padding: 13px 16px;
+    border-radius: 16px;
+    background: var(--accent-soft);
+    color: var(--dark);
+    font-weight: 600;
+    text-align: center;
+}
+
+.btn {
+    align-self: flex-end;
+    display: inline-block;
+    padding: 13px 28px;
+    border: none;
+    border-radius: 30px;
+    background: var(--accent);
+    color: var(--light);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+    background: #0949a8;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(8, 58, 128, 0.22);
+}
+
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        align-self: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .contact-hero {
+        padding: 140px 0 120px;
+    }
+
+    .contact-page {
+        padding: 70px 0 85px;
+    }
+
+    .contact-info,
+    .contact-form-wrapper {
+        padding: 28px 22px;
+        border-radius: 24px;
+    }
+
+    .info-item {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

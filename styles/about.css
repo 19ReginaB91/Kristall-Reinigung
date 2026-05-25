@@ -1,0 +1,271 @@
+.about-hero {
+    position: relative;
+    padding: 170px 0 150px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 14% 22%, rgba(191, 233, 255, 0.9), transparent 32%),
+        radial-gradient(circle at 88% 16%, rgba(122, 162, 223, 0.28), transparent 34%),
+        linear-gradient(135deg, #f7fbff 0%, #e9f7ff 55%, #ffffff 100%);
+}
+
+.about-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.section-kicker {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 28px rgba(8, 58, 128, 0.08);
+}
+
+.about-hero h1 {
+    margin-bottom: 22px;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 5.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+}
+
+.about-hero-text p {
+    max-width: 720px;
+    margin-bottom: 28px;
+    color: var(--muted);
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border: none;
+    border-radius: 30px;
+    background: var(--accent);
+    color: var(--light);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+    background: #0949a8;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(8, 58, 128, 0.22);
+}
+
+.about-hero-card {
+    padding: 34px;
+    border-radius: var(--radius-large);
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+}
+
+.about-hero-card img {
+    max-width: 260px;
+    margin: 0 auto 22px;
+}
+
+.about-hero-card p {
+    color: var(--dark);
+    font-weight: 800;
+}
+
+.foam-divider {
+    position: absolute;
+    left: -4%;
+    right: -4%;
+    bottom: -2px;
+    height: 105px;
+    z-index: 3;
+    background:
+        radial-gradient(circle at 2% 82%, #ffffff 0 34px, transparent 35px),
+        radial-gradient(circle at 8% 70%, #ffffff 0 46px, transparent 47px),
+        radial-gradient(circle at 16% 82%, #ffffff 0 36px, transparent 37px),
+        radial-gradient(circle at 25% 72%, #ffffff 0 52px, transparent 53px),
+        radial-gradient(circle at 35% 84%, #ffffff 0 38px, transparent 39px),
+        radial-gradient(circle at 46% 75%, #ffffff 0 48px, transparent 49px),
+        radial-gradient(circle at 57% 83%, #ffffff 0 34px, transparent 35px),
+        radial-gradient(circle at 67% 72%, #ffffff 0 50px, transparent 51px),
+        radial-gradient(circle at 78% 83%, #ffffff 0 39px, transparent 40px),
+        radial-gradient(circle at 88% 72%, #ffffff 0 54px, transparent 55px),
+        radial-gradient(circle at 98% 84%, #ffffff 0 40px, transparent 41px),
+        linear-gradient(#ffffff, #ffffff);
+}
+
+.about-story {
+    padding: 90px 0;
+    background: #ffffff;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+    gap: 48px;
+    align-items: center;
+}
+
+.about-text-block h2,
+.values-heading h2,
+.owner-card h2 {
+    margin-bottom: 18px;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1.08;
+}
+
+.about-text-block p {
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+
+.about-image-card {
+    overflow: hidden;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-medium);
+    background: var(--accent-soft);
+}
+
+.about-image-card img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+}
+
+.values-section {
+    padding: 90px 0;
+    background:
+        radial-gradient(circle at top left, rgba(191, 233, 255, 0.5), transparent 34%),
+        var(--accent-soft);
+}
+
+.values-heading {
+    max-width: 760px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.value-card {
+    padding: 28px 24px;
+    border-radius: var(--radius-medium);
+    background: #ffffff;
+    box-shadow: var(--shadow-soft);
+}
+
+.value-card span {
+    display: inline-flex;
+    margin-bottom: 18px;
+    color: var(--accent);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.value-card h3 {
+    margin-bottom: 12px;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+}
+
+.value-card p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.owner-section {
+    padding: 90px 0;
+    background: #ffffff;
+}
+
+.owner-card {
+    padding: 44px;
+    border-radius: var(--radius-large);
+    background:
+        radial-gradient(circle at top right, rgba(122, 162, 223, 0.18), transparent 38%),
+        #ffffff;
+    box-shadow: var(--shadow-soft);
+}
+
+.owner-card p {
+    max-width: 900px;
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 1.08rem;
+    line-height: 1.85;
+}
+
+.owner-card strong {
+    display: block;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+}
+
+.owner-card span {
+    color: var(--muted);
+}
+
+@media (max-width: 900px) {
+    .about-hero-inner,
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-image-card img {
+        height: 360px;
+    }
+}
+
+@media (max-width: 560px) {
+    .about-hero {
+        padding: 140px 0 120px;
+    }
+
+    .about-hero-card,
+    .owner-card {
+        padding: 28px 22px;
+    }
+
+    .about-story,
+    .values-section,
+    .owner-section {
+        padding: 70px 0;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image-card img {
+        height: 300px;
+    }
+}

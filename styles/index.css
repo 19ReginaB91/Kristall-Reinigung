@@ -300,6 +300,7 @@
 
 .discount-bubble {
     position: absolute;
+    z-index: 3001;
     left: 72vw;
     top: 34vh;
     width: 150px;
@@ -308,6 +309,7 @@
     border-radius: 50%;
     cursor: pointer;
     pointer-events: auto;
+    touch-action: manipulation;
     color: var(--dark);
     font-weight: 800;
     background:
@@ -322,14 +324,14 @@
 }
 
 .discount-bubble:hover {
-    animation-play-state: paused;
-    transform: scale(1.08);
+    transform: scale(1.04);
 }
 
 .discount-bubble-text {
     display: block;
     font-size: 0.9rem;
     line-height: 1.15;
+    pointer-events: none;
 }
 
 .discount-bubble.is-popped {
@@ -338,6 +340,7 @@
 
 .discount-result {
     position: fixed;
+    z-index: 3002;
     left: 50%;
     top: 50%;
     width: min(360px, calc(100% - 32px));
@@ -439,35 +442,12 @@
 }
 
 @keyframes roamingBubblePage {
-    0% {
-        left: 72vw;
-        top: 22vh;
-    }
-
-    18% {
-        left: 82vw;
-        top: 64vh;
-    }
-
-    36% {
-        left: 48vw;
-        top: 76vh;
-    }
-
-    54% {
-        left: 16vw;
-        top: 58vh;
-    }
-
-    72% {
-        left: 28vw;
-        top: 24vh;
-    }
-
-    100% {
-        left: 76vw;
-        top: 38vh;
-    }
+    0% { left: 72vw; top: 22vh; }
+    18% { left: 82vw; top: 64vh; }
+    36% { left: 48vw; top: 76vh; }
+    54% { left: 16vw; top: 58vh; }
+    72% { left: 28vw; top: 24vh; }
+    100% { left: 76vw; top: 38vh; }
 }
 
 @media (max-width: 900px) {

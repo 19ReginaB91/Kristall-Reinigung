@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedDiscountBox = document.getElementById("savedDiscountBox");
     const savedDiscountCode = document.getElementById("savedDiscountCode");
 
+    let discountWasOpened = false;
+
     function getDiscountCode(discount) {
         return `KRISTALL-${discount}`;
     }
@@ -81,12 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 22; i++) {
             const splash = document.createElement("span");
             splash.className = "bubble-splash";
 
-            const angle = (Math.PI * 2 * i) / 20;
-            const distance = 55 + Math.random() * 65;
+            const angle = (Math.PI * 2 * i) / 22;
+            const distance = 55 + Math.random() * 70;
             const moveX = Math.cos(angle) * distance;
             const moveY = Math.sin(angle) * distance;
 
@@ -104,6 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function openDiscountWindow() {
+        if (discountWasOpened) {
+            return;
+        }
+
+        discountWasOpened = true;
+
         let discount = localStorage.getItem("kristallDiscount");
 
         if (!discount) {
@@ -128,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (savedDiscount) {
         fillDiscountEverywhere(savedDiscount);
+        discountWasOpened = true;
 
         if (discountBubble) {
             discountBubble.classList.add("is-popped");
@@ -140,11 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (discountBubble) {
-        discountBubble.addEventListener("click", openDiscountWindow);
-        discountBubble.addEventListener("touchstart", (event) => {
+        discountBubble.addEventListener("pointerdown", (event) => {
             event.preventDefault();
             openDiscountWindow();
-        }, { passive: false });
+        });
     }
 
     const serviceAccordion = document.querySelector(".service-accordion");

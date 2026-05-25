@@ -131,6 +131,7 @@
     filter: blur(2px);
     transform: scale(1.08);
     transition: opacity 0.45s ease, filter 0.45s ease, transform 0.45s ease;
+    pointer-events: none;
 }
 
 .service-panel.active .panel-bg {
@@ -147,6 +148,7 @@
         linear-gradient(90deg, rgba(6, 36, 78, 0.92), rgba(8, 58, 128, 0.72)),
         radial-gradient(circle at top right, rgba(255, 255, 255, 0.22), transparent 30%);
     z-index: 1;
+    pointer-events: none;
 }
 
 .panel-closed-label {

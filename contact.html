@@ -15,125 +15,106 @@
 </head>
 <body>
 
-<header class="header">
-    <div class="container nav-container">
-        <a href="index.html" class="logo">
-            <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
-            <span>Kristall Reinigung</span>
-        </a>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
+              <!-- <span>Kristall Reinigung</span> -->
+            </a>
+            <button class="menu-toggle">
+                <span class="hamburger"></span>
 
-        <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
-            <span class="hamburger"></span>
-        </button>
+            </button>
+            
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="services.html">Leistungen</a></li>
+                    <li><a href="about.html">Über uns</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                </ul>
+            </nav>
+                    
+        </div>
+    </header>
 
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="services.html">Leistungen</a></li>
-                <li><a href="about.html">Über uns</a></li>
-                <li><a href="contact.html" class="active">Kontakt</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
 
-<main>
-    <section class="contact-page">
-        <div class="container contact-container-wrapper">
 
-            <div class="contact-info">
-                <h2>Kontaktieren Sie uns jetzt!</h2>
-                <p class="contact-intro">
-                    Wir sind für Sie da. Unser Servicegebiet umfasst Wesel und die Umgebung bis zu 60 km.
-                    Kontaktieren Sie uns für eine kostenlose und unverbindliche Beratung oder um Ihren Wunschtermin zu vereinbaren.
-                </p>
+    <main>
+        <section class="contact-section contact-page" id="contact">
+            <div class="container contact-container-wrapper">
+                
+                <div class="contact-info">
+                    <h2>Kontaktieren Sie uns jetzt!</h2>
+                    <p class="contact-intro">Wir sind für Sie da! **Unser Servicegebiet umfasst Wesel und die Umgebung bis zu 60 km.** Kontaktieren Sie uns für eine kostenlose und unverbindliche Beratung oder um Ihren Wunschtermin zu vereinbaren. Wir beantworten jede Anfrage schnellstmöglich.</p>
 
-                <div class="info-item">
-                    <img src="assets/images/phone-icon.svg" alt="">
-                    <div>
+                    <div class="info-item">
+                        <img src="assets/images/phone-icon.svg" alt="Telefon">
                         <h3>Rufen Sie uns an</h3>
                         <a href="tel:+4917647156017">+49 176 471 560 17</a>
                     </div>
-                </div>
 
-                <div class="info-item">
-                    <img src="assets/images/mail-icon.svg" alt="">
-                    <div>
+                    <div class="info-item">
+                        <img src="assets/images/mail-icon.svg" alt="E-Mail">
                         <h3>Schreiben Sie uns</h3>
                         <a href="mailto:kristall.reinigung.de@gmail.com">kristall.reinigung.de@gmail.com</a>
                     </div>
+
+                   
+                    
                 </div>
-
-                <div class="info-item">
-                    <img src="assets/images/location-icon.svg" alt="">
-                    <div>
-                        <h3>Servicegebiet</h3>
-                        <p>Wesel & Umgebung bis zu 60 km</p>
-                    </div>
+                
+                <div class="contact-form-wrapper">
+                    <h2>Angebotsanfrage</h2>
+                    <p class="contact-subtitle">Füllen Sie das Formular aus, wir melden uns umgehend bei Ihnen.</p>
+                    
+                    <form action="#" method="post" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="first-name" placeholder="Vorname" required>
+                            <input type="text" name="last-name" placeholder="Nachname" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Telefon" required>
+                            <input type="email" name="email" placeholder="E-Mail" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <textarea name="message" placeholder="Ihre Nachricht und Art der gewünschten Reinigung" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Senden</button>
+                    </form>
                 </div>
-
-                <div class="contact-actions-mini">
-                    <a href="tel:+4917647156017">Anrufen</a>
-                    <a href="https://wa.me/4917647156017">WhatsApp</a>
-                </div>
-            </div>
-
-            <div class="contact-form-wrapper">
-                <h2>Angebotsanfrage</h2>
-                <p class="contact-subtitle">
-                    Füllen Sie das Formular aus. Wir melden uns schnellstmöglich bei Ihnen.
-                </p>
-
-                <form action="#" method="post" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="first-name" placeholder="Vorname" required>
-                        <input type="text" name="last-name" placeholder="Nachname" required>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="tel" name="phone" placeholder="Telefon" required>
-                        <input type="email" name="email" placeholder="E-Mail" required>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <textarea name="message" placeholder="Ihre Nachricht und Art der gewünschten Reinigung" rows="6" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn">Senden</button>
-                </form>
-            </div>
 
         </div>
     </section>
 </main>
 
-<footer class="footer">
-    <div class="container footer-content">
-        <div class="footer-logo">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
-            </a>
-            <p>Servicegebiet: Wesel & Umgebung | 46485</p>
+     <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <a href="#" class="logo">
+                    <img src="assets/images/logo.svg" alt="Kristall Reinigung Logo">
+                </a>
+                <p> 46485  Wesel</p>
+            </div>
+            <div class="footer-nav">
+                <a href="index.html">Startseite</a>
+                <a href="services.html">Leistungen</a>
+                <a href="about.html">Über uns</a>
+                <a href="contact.html">Kontakt</a>
+            </div>
+            <div class="footer-contacts">
+                <p>+49 176 471 560 17</p>
+                <p>kristall.reinigung.de@gmail.com</p>
+            </div>
         </div>
-
-        <nav class="footer-nav">
-            <a href="index.html">Startseite</a>
-            <a href="services.html">Leistungen</a>
-            <a href="about.html">Über uns</a>
-            <a href="contact.html">Kontakt</a>
-        </nav>
-
-        <div class="footer-contacts">
-            <p>Telefon: +49 176 471 560 17</p>
-            <p>E-Mail: kristall.reinigung.de@gmail.com</p>
+        <div class="footer-bottom">
+            <p>© 2025 Kristall Reinigung.de All rights reserved</p>
         </div>
-    </div>
+    </footer>
 
-    <div class="container footer-bottom">
-        <p>&copy; 2025 Kristall Reinigung. Alle Rechte vorbehalten.</p>
-    </div>
-</footer>
 
-<script src="index.js"></script>
+
+    <script src="index.js"></script>
+
 </body>
 </html>

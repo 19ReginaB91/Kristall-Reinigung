@@ -289,3 +289,18 @@
         text-align: center;
     }
 }
+
+thanks-hero {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+}
+
+.thanks-card {
+    max-width: 760px;
+    text-align: center;
+}
+
+.thanks-card .btn {
+    margin-top: 24px;
+}

@@ -149,44 +149,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (discountBubble) {
-        discountBubble.addEventListener("pointerdown", (event) => {
+        discountBubble.addEventListener("click", (event) => {
             event.preventDefault();
+            event.stopPropagation();
             openDiscountWindow();
         });
+
+        discountBubble.addEventListener("touchstart", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            openDiscountWindow();
+        }, { passive: false });
     }
 
-    const serviceAccordion = document.querySelector(".service-accordion");
+    const servicePanels = document.querySelectorAll(".service-panel");
 
-    if (serviceAccordion) {
-        serviceAccordion.addEventListener("click", (event) => {
-            const panel = event.target.closest(".service-panel");
+    if (servicePanels.length) {
+        servicePanels.forEach((panel) => {
+            panel.addEventListener("click", () => {
+                servicePanels.forEach((item) => {
+                    item.classList.remove("active");
+                    item.setAttribute("aria-expanded", "false");
+                });
 
-            if (!panel) {
-                return;
-            }
-
-            document.querySelectorAll(".service-panel").forEach((item) => {
-                item.classList.remove("active");
-                item.setAttribute("aria-expanded", "false");
+                panel.classList.add("active");
+                panel.setAttribute("aria-expanded", "true");
             });
 
-            panel.classList.add("active");
-            panel.setAttribute("aria-expanded", "true");
-        });
-
-        serviceAccordion.addEventListener("keydown", (event) => {
-            if (event.key !== "Enter" && event.key !== " ") {
-                return;
-            }
-
-            const panel = event.target.closest(".service-panel");
-
-            if (!panel) {
-                return;
-            }
-
-            event.preventDefault();
-            panel.click();
+            panel.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    panel.click();
+                }
+            });
         });
     }
 });

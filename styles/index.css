@@ -294,13 +294,13 @@
 .discount-game {
     position: fixed;
     inset: 0;
-    z-index: 3000;
+    z-index: 900;
     pointer-events: none;
 }
 
 .discount-bubble {
     position: absolute;
-    z-index: 3001;
+    z-index: 901;
     left: 72vw;
     top: 34vh;
     width: 150px;
@@ -341,8 +341,10 @@
 .discount-result {
     position: fixed;
     z-index: 3002;
-    left: 50%;
-    top: 50%;
+    left: auto;
+    right: 24px;
+    top: auto;
+    bottom: 24px;
     width: min(360px, calc(100% - 32px));
     padding: 28px 24px;
     border-radius: 28px;
@@ -351,14 +353,14 @@
     box-shadow: 0 30px 80px rgba(8,58,128,0.28);
     pointer-events: auto;
     text-align: center;
-    transform: translate(-50%, -50%) scale(0.94);
+    transform: translateY(14px) scale(0.96);
     opacity: 0;
     transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .discount-result.is-visible {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translateY(0) scale(1);
 }
 
 .discount-result::before {
@@ -522,6 +524,8 @@
     }
 
     .discount-result {
+        right: 14px;
+        bottom: 14px;
         width: calc(100% - 28px);
     }
 }

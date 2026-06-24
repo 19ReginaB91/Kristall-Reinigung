@@ -99,7 +99,7 @@
 
 .service-panel {
     position: relative;
-    flex: 0.55;
+    flex: 0.48;
     min-width: 70px;
     height: 100%;
     overflow: hidden;
@@ -118,7 +118,7 @@
 }
 
 .service-panel.active {
-    flex: 4.8;
+    flex: 4.6;
 }
 
 .panel-bg {

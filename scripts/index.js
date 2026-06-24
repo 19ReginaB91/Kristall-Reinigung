@@ -39,6 +39,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    if (hero) {
+        hero.addEventListener("mousemove", (event) => {
+            const rect = hero.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width) * 100;
+            const y = event.clientY - rect.top;
+            const bottomDistance = rect.height - y;
+
+            hero.style.setProperty("--foam-x", `${x}%`);
+
+            if (bottomDistance < 230) {
+                hero.classList.add("foam-active");
+                hero.style.setProperty("--foam-lift", "-10px");
+            } else {
+                hero.classList.remove("foam-active");
+                hero.style.setProperty("--foam-lift", "0px");
+            }
+        });
+
+        hero.addEventListener("mouseleave", () => {
+            hero.classList.remove("foam-active");
+            hero.style.setProperty("--foam-x", "50%");
+            hero.style.setProperty("--foam-lift", "0px");
+        });
+    }
+
     const discountBubble = document.querySelector(".discount-bubble");
     const discountResult = document.querySelector(".discount-result");
     const discountValue = document.getElementById("discount-value");
@@ -112,12 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         discountWasOpened = true;
 
-        let discount = localStorage.getItem("kristallDiscount");
-
-        if (!discount) {
-            discount = String(Math.floor(Math.random() * 16) + 5);
-            localStorage.setItem("kristallDiscount", discount);
-        }
+        const discount = "10";
+        localStorage.setItem("kristallDiscount", discount);
 
         fillDiscountEverywhere(discount);
 
@@ -128,7 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (discountResult) {
             discountResult.hidden = false;
-            discountResult.classList.add("is-visible");
+
+            requestAnimationFrame(() => {
+                discountResult.classList.add("is-visible");
+            });
         }
     }
 
@@ -166,7 +190,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (servicePanels.length) {
         servicePanels.forEach((panel) => {
-            panel.addEventListener("click", () => {
+            panel.addEventListener("click", (event) => {
+                if (event.target.closest("a, button, input, textarea")) {
+                    return;
+                }
+
                 servicePanels.forEach((item) => {
                     item.classList.remove("active");
                     item.setAttribute("aria-expanded", "false");

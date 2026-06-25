@@ -1,7 +1,4 @@
 .hero {
-    --foam-x: 50%;
-    --foam-lift: 0px;
-
     position: relative;
     height: 100vh;
     min-height: 680px;
@@ -47,7 +44,6 @@
         inset 0 0 22px rgba(255,255,255,0.72),
         0 16px 28px rgba(8,58,128,0.12);
     backdrop-filter: blur(2px);
-    transition: transform 0.2s ease-out;
 }
 
 .bubble-1 {
@@ -112,28 +108,6 @@
         radial-gradient(circle at 82% 74%, #ffffff 0 62px, transparent 63px),
         radial-gradient(circle at 93% 58%, #ffffff 0 76px, transparent 77px),
         linear-gradient(to bottom, transparent 0%, #ffffff 62%, #ffffff 100%);
-    transform: translateY(var(--foam-lift));
-    transform-origin: var(--foam-x) 100%;
-    transition: transform 0.22s ease-out;
-}
-
-.foam-divider::before {
-    content: "";
-    position: absolute;
-    left: calc(var(--foam-x) - 150px);
-    bottom: 78px;
-    width: 300px;
-    height: 105px;
-    border-radius: 50%;
-    background: #ffffff;
-    opacity: 0;
-    transform: translateY(28px) scaleX(0.7);
-    transition: opacity 0.2s ease-out, transform 0.22s ease-out;
-}
-
-.hero.foam-active .foam-divider::before {
-    opacity: 1;
-    transform: translateY(-10px) scaleX(1);
 }
 
 .welcome-section {
@@ -504,13 +478,6 @@
         height: 145px;
     }
 
-    .foam-divider::before {
-        width: 240px;
-        height: 82px;
-        left: calc(var(--foam-x) - 120px);
-        bottom: 58px;
-    }
-
     .welcome-section::before {
         content: "";
         display: block;
@@ -546,13 +513,6 @@
 
     .foam-divider {
         height: 118px;
-    }
-
-    .foam-divider::before {
-        width: 190px;
-        height: 64px;
-        left: calc(var(--foam-x) - 95px);
-        bottom: 42px;
     }
 
     .welcome-section::before {

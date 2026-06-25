@@ -456,6 +456,80 @@
     100% { left: 76vw; top: 38vh; }
 }
 
+.discount-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--dark);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.discount-close:hover {
+    background: #d9f2ff;
+}
+
+.discount-saved-badge {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 3001;
+    width: min(340px, calc(100% - 32px));
+    padding: 16px 18px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: var(--dark);
+    box-shadow: 0 18px 48px rgba(8,58,128,0.22);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.discount-saved-badge.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.discount-saved-badge strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.discount-saved-badge span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 560px) {
+    .discount-result {
+        max-height: 72vh;
+        overflow-y: auto;
+        padding: 26px 20px 22px;
+    }
+
+    .discount-close {
+        top: 10px;
+        right: 10px;
+    }
+
+    .discount-saved-badge {
+        right: 14px;
+        bottom: 14px;
+        width: calc(100% - 28px);
+    }
+}
+
 @media (max-width: 1200px) {
     .info-section {
         grid-template-columns: repeat(2, 1fr);
@@ -475,7 +549,19 @@
     }
 
     .foam-divider {
-        height: 145px;
+        height: 120px;
+        background:
+            radial-gradient(circle at 4% 88%, #ffffff 0 30px, transparent 31px),
+            radial-gradient(circle at 10% 78%, #ffffff 0 44px, transparent 45px),
+            radial-gradient(circle at 18% 88%, #ffffff 0 34px, transparent 35px),
+            radial-gradient(circle at 28% 76%, #ffffff 0 50px, transparent 51px),
+            radial-gradient(circle at 40% 88%, #ffffff 0 36px, transparent 37px),
+            radial-gradient(circle at 52% 76%, #ffffff 0 52px, transparent 53px),
+            radial-gradient(circle at 64% 88%, #ffffff 0 34px, transparent 35px),
+            radial-gradient(circle at 76% 78%, #ffffff 0 48px, transparent 49px),
+            radial-gradient(circle at 88% 88%, #ffffff 0 36px, transparent 37px),
+            radial-gradient(circle at 98% 80%, #ffffff 0 42px, transparent 43px),
+            linear-gradient(to bottom, transparent 0%, #ffffff 58%, #ffffff 100%);
     }
 
     .welcome-section::before {
@@ -512,7 +598,7 @@
     }
 
     .foam-divider {
-        height: 118px;
+        height: 95px;
     }
 
     .welcome-section::before {

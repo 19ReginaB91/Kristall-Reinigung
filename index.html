@@ -120,19 +120,26 @@
         <div class="container contact-container">
             <h2>Kontakt</h2>
 
-            <form action="thanks.html" method="get" class="contact-form">
+            <form name="homepage-contact"
+                  method="POST"
+                  data-netlify="true"
+                  action="thanks.html"
+                  class="contact-form">
+
+                <input type="hidden" name="form-name" value="homepage-contact">
+
                 <div class="form-group">
-                    <input type="text" name="first-name" placeholder="Vorname">
-                    <input type="text" name="last-name" placeholder="Nachname">
+                    <input type="text" name="first-name" placeholder="Vorname" required>
+                    <input type="text" name="last-name" placeholder="Nachname" required>
                 </div>
 
                 <div class="form-group">
-                    <input type="tel" name="phone" placeholder="Telefon">
-                    <input type="email" name="email" placeholder="E-Mail">
+                    <input type="tel" name="phone" placeholder="Telefon" required>
+                    <input type="email" name="email" placeholder="E-Mail" required>
                 </div>
 
                 <div class="form-group full-width">
-                    <textarea name="message" placeholder="Nachricht"></textarea>
+                    <textarea name="message" placeholder="Nachricht" required></textarea>
                 </div>
 
                 <input type="hidden" name="rabatt" id="discountInput" value="">
@@ -184,7 +191,7 @@
     </div>
 
     <div class="footer-bottom">
-        <p>© 2025 Kristall Reinigung.de All rights reserved</p>
+        <p>© 2025 Kristall Reinigung All rights reserved</p>
     </div>
 </footer>
 

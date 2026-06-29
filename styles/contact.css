@@ -10,9 +10,9 @@
 }
 
 .contact-hero-inner {
-    max-width: 860px;
     position: relative;
     z-index: 2;
+    max-width: 860px;
 }
 
 .section-kicker {
@@ -36,7 +36,7 @@
     font-family: var(--font-heading);
     font-size: clamp(2.4rem, 6vw, 5rem);
     line-height: 1.02;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
 }
 
 .contact-hero p {
@@ -52,6 +52,7 @@
     bottom: -2px;
     height: 105px;
     z-index: 3;
+    pointer-events: none;
     background:
         radial-gradient(circle at 2% 82%, #ffffff 0 34px, transparent 35px),
         radial-gradient(circle at 8% 70%, #ffffff 0 46px, transparent 47px),
@@ -100,6 +101,7 @@
     font-family: var(--font-heading);
     font-size: clamp(1.9rem, 3vw, 3rem);
     line-height: 1.1;
+    letter-spacing: 0;
 }
 
 .contact-intro,
@@ -124,12 +126,12 @@
 }
 
 .info-icon {
-    flex: 0 0 44px;
-    width: 44px;
-    height: 44px;
     display: inline-flex;
+    flex: 0 0 44px;
     align-items: center;
     justify-content: center;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: var(--dark);
     color: #ffffff;
@@ -147,8 +149,8 @@
 .info-item a,
 .info-item p {
     color: var(--muted);
-    text-decoration: none;
     font-weight: 600;
+    text-decoration: none;
     overflow-wrap: anywhere;
 }
 
@@ -202,11 +204,11 @@
     padding: 15px 16px;
     border: 1px solid var(--border-color);
     border-radius: 14px;
+    outline: none;
     background: #ffffff;
-    color: var(--text-dark);
+    color: var(--text-color);
     font-family: var(--font-body);
     font-size: 1rem;
-    outline: none;
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -232,14 +234,15 @@
 }
 
 .btn {
-    align-self: flex-end;
     display: inline-block;
+    align-self: flex-end;
     padding: 13px 28px;
     border: none;
     border-radius: 30px;
     background: var(--accent);
     color: var(--light);
     font-weight: 700;
+    text-align: center;
     text-decoration: none;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
@@ -249,6 +252,44 @@
     background: #0949a8;
     transform: translateY(-2px);
     box-shadow: 0 14px 28px rgba(8, 58, 128, 0.22);
+}
+
+.thanks-hero {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    padding: 150px 0 80px;
+    background:
+        radial-gradient(circle at 14% 24%, rgba(191, 233, 255, 0.9), transparent 32%),
+        radial-gradient(circle at 86% 18%, rgba(122, 162, 223, 0.28), transparent 34%),
+        linear-gradient(135deg, #f7fbff 0%, #e9f7ff 52%, #ffffff 100%);
+}
+
+.thanks-card {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 46px;
+    border-radius: var(--radius-large);
+    background: #ffffff;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+.thanks-card h1 {
+    margin-bottom: 18px;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.1;
+}
+
+.thanks-card p {
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.thanks-card .btn {
+    margin-top: 24px;
 }
 
 @media (max-width: 900px) {
@@ -275,7 +316,8 @@
     }
 
     .contact-info,
-    .contact-form-wrapper {
+    .contact-form-wrapper,
+    .thanks-card {
         padding: 28px 22px;
         border-radius: 24px;
     }
@@ -288,19 +330,8 @@
         width: 100%;
         text-align: center;
     }
-}
 
-thanks-hero {
-    min-height: calc(100vh - 120px);
-    display: flex;
-    align-items: center;
-}
-
-.thanks-card {
-    max-width: 760px;
-    text-align: center;
-}
-
-.thanks-card .btn {
-    margin-top: 24px;
+    .thanks-hero {
+        padding: 120px 0 60px;
+    }
 }

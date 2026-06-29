@@ -38,11 +38,11 @@
     display: block;
     border-radius: 50%;
     background:
-        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.95), rgba(255,255,255,0.22) 28%, transparent 48%),
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.22) 28%, transparent 48%),
         rgba(255, 255, 255, 0.22);
     box-shadow:
-        inset 0 0 22px rgba(255,255,255,0.72),
-        0 16px 28px rgba(8,58,128,0.12);
+        inset 0 0 22px rgba(255, 255, 255, 0.72),
+        0 16px 28px rgba(8, 58, 128, 0.12);
     backdrop-filter: blur(2px);
 }
 
@@ -79,7 +79,8 @@
 }
 
 @keyframes floatBubble {
-    0%, 100% {
+    0%,
+    100% {
         margin-top: 0;
     }
 
@@ -225,16 +226,10 @@
 .contact-section {
     position: relative;
     padding: 90px 0;
-    background: url("../assets/images/contact-bg.jpg") center/cover no-repeat;
+    background:
+        linear-gradient(rgba(8, 58, 128, 0.72), rgba(8, 58, 128, 0.72)),
+        url("../assets/images/contact-bg.jpg") center / cover no-repeat;
     text-align: center;
-}
-
-.contact-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(8, 58, 128, 0.58);
-    z-index: 1;
 }
 
 .contact-container {
@@ -295,6 +290,65 @@
     text-align: center;
 }
 
+/* Legal pages: impressum.html and datenschutz.html */
+
+.legal-page {
+    min-height: 70vh;
+    padding: 150px 0 80px;
+    background:
+        linear-gradient(rgba(249, 249, 249, 0.94), rgba(249, 249, 249, 0.94)),
+        url("../assets/images/start-hero.png") center / cover no-repeat;
+}
+
+.legal-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 46px;
+    border: 1px solid rgba(8, 58, 128, 0.08);
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 18px 42px rgba(6, 36, 78, 0.08);
+}
+
+.legal-card h1,
+.legal-card h2 {
+    color: var(--dark);
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.legal-card h1 {
+    margin-bottom: 26px;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+}
+
+.legal-card h2 {
+    margin: 32px 0 12px;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.legal-card p {
+    margin-bottom: 14px;
+    color: var(--text-color);
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+}
+
+.legal-card a {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.legal-card a:hover {
+    color: var(--dark);
+}
+
+/* Discount game */
+
 .discount-game {
     position: fixed;
     inset: 0;
@@ -317,12 +371,12 @@
     color: var(--dark);
     font-weight: 800;
     background:
-        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.98), rgba(255,255,255,0.18) 24%, transparent 42%),
-        radial-gradient(circle at 70% 75%, rgba(122,162,223,0.38), transparent 45%),
-        rgba(255,255,255,0.46);
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.18) 24%, transparent 42%),
+        radial-gradient(circle at 70% 75%, rgba(122, 162, 223, 0.38), transparent 45%),
+        rgba(255, 255, 255, 0.46);
     box-shadow:
-        inset 0 0 24px rgba(255,255,255,0.95),
-        0 18px 35px rgba(8,58,128,0.24);
+        inset 0 0 24px rgba(255, 255, 255, 0.95),
+        0 18px 35px rgba(8, 58, 128, 0.24);
     backdrop-filter: blur(4px);
     animation: roamingBubblePage 12s ease-in-out infinite alternate;
 }
@@ -345,16 +399,14 @@
 .discount-result {
     position: fixed;
     z-index: 3002;
-    left: auto;
     right: 24px;
-    top: auto;
     bottom: 24px;
     width: min(360px, calc(100% - 32px));
     padding: 28px 24px;
     border-radius: 28px;
     background: #ffffff;
     color: var(--dark);
-    box-shadow: 0 30px 80px rgba(8,58,128,0.28);
+    box-shadow: 0 30px 80px rgba(8, 58, 128, 0.28);
     pointer-events: auto;
     text-align: center;
     transform: translateY(14px) scale(0.96);
@@ -430,8 +482,8 @@
     border-radius: 50%;
     pointer-events: none;
     background:
-        radial-gradient(circle at 30% 25%, #ffffff, rgba(255,255,255,0.3) 45%, rgba(122,162,223,0.18));
-    box-shadow: inset 0 0 8px rgba(255,255,255,0.95);
+        radial-gradient(circle at 30% 25%, #ffffff, rgba(255, 255, 255, 0.3) 45%, rgba(122, 162, 223, 0.18));
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.95);
     animation: bubbleSplash 0.85s ease-out forwards;
 }
 
@@ -448,12 +500,35 @@
 }
 
 @keyframes roamingBubblePage {
-    0% { left: 72vw; top: 22vh; }
-    18% { left: 82vw; top: 64vh; }
-    36% { left: 48vw; top: 76vh; }
-    54% { left: 16vw; top: 58vh; }
-    72% { left: 28vw; top: 24vh; }
-    100% { left: 76vw; top: 38vh; }
+    0% {
+        left: 72vw;
+        top: 22vh;
+    }
+
+    18% {
+        left: 82vw;
+        top: 64vh;
+    }
+
+    36% {
+        left: 48vw;
+        top: 76vh;
+    }
+
+    54% {
+        left: 16vw;
+        top: 58vh;
+    }
+
+    72% {
+        left: 28vw;
+        top: 24vh;
+    }
+
+    100% {
+        left: 76vw;
+        top: 38vh;
+    }
 }
 
 .discount-close {
@@ -486,7 +561,7 @@
     border-radius: 20px;
     background: #ffffff;
     color: var(--dark);
-    box-shadow: 0 18px 48px rgba(8,58,128,0.22);
+    box-shadow: 0 18px 48px rgba(8, 58, 128, 0.22);
     pointer-events: none;
     opacity: 0;
     transform: translateY(14px);
@@ -509,25 +584,6 @@
     color: var(--muted);
     font-size: 0.85rem;
     line-height: 1.4;
-}
-
-@media (max-width: 560px) {
-    .discount-result {
-        max-height: 72vh;
-        overflow-y: auto;
-        padding: 26px 20px 22px;
-    }
-
-    .discount-close {
-        top: 10px;
-        right: 10px;
-    }
-
-    .discount-saved-badge {
-        right: 14px;
-        bottom: 14px;
-        width: calc(100% - 28px);
-    }
 }
 
 @media (max-width: 1200px) {
@@ -570,7 +626,7 @@
         width: min(88%, 420px);
         height: 420px;
         margin: 0 auto 28px;
-        background: url("../assets/images/banner-text.svg") center/contain no-repeat;
+        background: url("../assets/images/banner-text.svg") center / contain no-repeat;
     }
 
     .welcome-section {
@@ -584,6 +640,16 @@
 
     .contact-form .btn {
         align-self: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .legal-page {
+        padding: 120px 0 50px;
+    }
+
+    .legal-card {
+        padding: 28px 22px;
     }
 }
 
@@ -632,6 +698,20 @@
     }
 
     .discount-result {
+        right: 14px;
+        bottom: 14px;
+        width: calc(100% - 28px);
+        max-height: 72vh;
+        overflow-y: auto;
+        padding: 26px 20px 22px;
+    }
+
+    .discount-close {
+        top: 10px;
+        right: 10px;
+    }
+
+    .discount-saved-badge {
         right: 14px;
         bottom: 14px;
         width: calc(100% - 28px);

@@ -9,12 +9,12 @@
 }
 
 .about-hero-inner {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
     gap: 48px;
     align-items: center;
-    position: relative;
-    z-index: 2;
 }
 
 .section-kicker {
@@ -38,7 +38,7 @@
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 6vw, 5.2rem);
     line-height: 1.02;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
 }
 
 .about-hero-text p {
@@ -93,6 +93,7 @@
     bottom: -2px;
     height: 105px;
     z-index: 3;
+    pointer-events: none;
     background:
         radial-gradient(circle at 2% 82%, #ffffff 0 34px, transparent 35px),
         radial-gradient(circle at 8% 70%, #ffffff 0 46px, transparent 47px),
@@ -128,6 +129,7 @@
     font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3.4rem);
     line-height: 1.08;
+    letter-spacing: 0;
 }
 
 .about-text-block p {
@@ -140,8 +142,8 @@
 .about-image-card {
     overflow: hidden;
     border-radius: var(--radius-large);
-    box-shadow: var(--shadow-medium);
     background: var(--accent-soft);
+    box-shadow: var(--shadow-medium);
 }
 
 .about-image-card img {

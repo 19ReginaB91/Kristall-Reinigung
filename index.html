@@ -55,17 +55,64 @@
         <div class="foam-divider" aria-hidden="true"></div>
     </section>
 
+    <section class="summer-spotlight" id="sommer-angebot">
+        <div class="container summer-spotlight-inner">
+            <div class="summer-copy">
+                <p class="summer-kicker">Sommer-Angebot für Neukunden</p>
+
+                <h2>Heiße Tage? Wir übernehmen das für Sie.</h2>
+
+                <p>
+                    Ob Fenster, Haushalt, Büro oder Hotel: Im Sommer ist jede Entlastung
+                    willkommen. Starten Sie unsere Rabatt-Blase und sichern Sie sich zufällig
+                    bis zu 20% Rabatt auf Ihre erste gebuchte Leistung.
+                </p>
+
+                <div class="summer-actions">
+                    <button class="btn summer-start" type="button" id="startDiscountBubble">
+                        Rabatt-Blase starten
+                    </button>
+
+                    <span>Gültig bis 31.08.2026</span>
+                </div>
+            </div>
+
+            <div class="summer-card" aria-label="Bis zu 20 Prozent Rabatt für Neukunden">
+                <span>Bis zu</span>
+                <strong>20%</strong>
+                <p>Sommer-Rabatt</p>
+                <small>Nur für Neukunden</small>
+            </div>
+        </div>
+    </section>
+
     <section class="welcome-section">
         <div class="hero-content container">
             <h1 class="hero-title">Willkommen bei Kristall Reinigung</h1>
             <p class="hero-subtitle">
-                Kristall Reinigung ist ein zuverlässiges Familienunternehmen mit Erfahrung.
-                Wir bieten Fensterreinigung, Haushaltsreinigung, Büroreinigung,
-                Hotelreinigung sowie weitere Reinigungs- und Unterstützungsleistungen
-                für Privat- und Gewerbekunden in Wesel und Umgebung.
-                Kontaktieren Sie uns gerne für ein unverbindliches Angebot.
+                Kristall Reinigung ist ein Familienunternehmen aus Wesel. Seit 2021 unterstützen
+                wir private Haushalte, Büros, Hotels und Gewerbekunden mit zuverlässiger Reinigung.
+                Unsere Kunden schätzen gründliche Arbeit, Pünktlichkeit und klare Absprachen.
+                Wir sind in Wesel und bis zu 60 km Umgebung für Sie da.
             </p>
             <a href="services.html" class="btn">Weiter lesen</a>
+        </div>
+    </section>
+
+    <section class="trust-section container" aria-label="Warum Kristall Reinigung">
+        <div class="trust-item">
+            <strong>Seit 2021</strong>
+            <span>Erfahrung in Reinigung, Haushalt und Alltagshilfe</span>
+        </div>
+
+        <div class="trust-item">
+            <strong>Familienunternehmen</strong>
+            <span>Persönlich erreichbar, zuverlässig und direkt</span>
+        </div>
+
+        <div class="trust-item">
+            <strong>Bis 60 km</strong>
+            <span>Wesel und Umgebung für Privat- und Gewerbekunden</span>
         </div>
     </section>
 
@@ -154,16 +201,17 @@
     </section>
 </main>
 
-<div class="discount-game" aria-live="polite">
+<div class="discount-game" id="discountGame" aria-live="polite" hidden>
     <button class="discount-bubble" type="button" aria-label="Rabatt-Blase platzen lassen">
         <span class="discount-bubble-text">Fang<br>die Blase!</span>
     </button>
 
     <div class="discount-result" hidden>
         <span class="discount-small">Glückwunsch!</span>
-        <strong><span id="discount-value">10</span>% Rabatt</strong>
+        <strong><span id="discount-value">10</span>% Sommer-Rabatt</strong>
         <p>Ihr Rabattcode für Neukunden:</p>
         <b id="discount-code">KRISTALL-10</b>
+        <small class="discount-valid">Gültig bis 31.08.2026</small>
         <a href="#contact">Rabatt sichern / Termin vereinbaren</a>
     </div>
 </div>

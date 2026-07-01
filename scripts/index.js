@@ -39,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const discountGame = document.getElementById("discountGame");
+    const startDiscountBubble = document.getElementById("startDiscountBubble");
     const discountBubble = document.querySelector(".discount-bubble");
     const discountResult = document.querySelector(".discount-result");
     const discountValue = document.getElementById("discount-value");
@@ -53,6 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getDiscountCode(discount) {
         return `KRISTALL-${discount}`;
+    }
+
+    function getRandomDiscount() {
+        const discounts = [5, 10, 15, 20];
+        const randomIndex = Math.floor(Math.random() * discounts.length);
+
+        return String(discounts[randomIndex]);
     }
 
     function createDiscountCloseButton() {
@@ -79,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         badge.innerHTML = `
             <strong>Rabatt gespeichert: ${code}</strong>
-            <span>Der Rabatt wird bei Ihrer Anfrage automatisch mitgesendet.</span>
+            <span>Der Sommer-Rabatt wird bei Ihrer Anfrage automatisch mitgesendet.</span>
         `;
 
         badge.hidden = false;
@@ -140,12 +149,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function startDiscountGame() {
+        if (!discountGame || discountWasOpened) return;
+
+        discountGame.hidden = false;
+
+        if (discountBubble) {
+            discountBubble.classList.remove("is-popped");
+        }
+
+        if (startDiscountBubble) {
+            startDiscountBubble.textContent = "Rabatt-Blase läuft";
+            startDiscountBubble.disabled = true;
+            startDiscountBubble.setAttribute("aria-disabled", "true");
+        }
+    }
+
     function openDiscountWindow() {
         if (discountWasOpened) return;
 
         discountWasOpened = true;
 
-        const discount = "10";
+        const discount = getRandomDiscount();
         localStorage.setItem("kristallDiscount", discount);
 
         fillDiscountEverywhere(discount);
@@ -163,6 +188,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 discountResult.classList.add("is-visible");
             });
         }
+
+        if (startDiscountBubble) {
+            startDiscountBubble.textContent = "Rabatt gespeichert";
+            startDiscountBubble.disabled = true;
+            startDiscountBubble.setAttribute("aria-disabled", "true");
+        }
     }
 
     function closeDiscountWindow() {
@@ -174,6 +205,12 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 discountResult.hidden = true;
             }, 250);
+        }
+
+        if (discountGame) {
+            setTimeout(() => {
+                discountGame.hidden = true;
+            }, 260);
         }
 
         if (savedDiscount) {
@@ -188,11 +225,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const code = fillDiscountEverywhere(savedDiscount);
         discountWasOpened = true;
 
+        if (discountGame) {
+            discountGame.hidden = true;
+        }
+
         if (discountBubble) {
             discountBubble.classList.add("is-popped");
         }
 
+        if (startDiscountBubble) {
+            startDiscountBubble.textContent = "Rabatt bereits gespeichert";
+            startDiscountBubble.disabled = true;
+            startDiscountBubble.setAttribute("aria-disabled", "true");
+        }
+
         createSavedDiscountBadge(code);
+    }
+
+    if (startDiscountBubble) {
+        startDiscountBubble.addEventListener("click", startDiscountGame);
     }
 
     if (discountBubble) {

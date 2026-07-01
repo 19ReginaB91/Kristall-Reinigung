@@ -111,8 +111,153 @@
         linear-gradient(to bottom, transparent 0%, #ffffff 62%, #ffffff 100%);
 }
 
+/* Sommer-Angebot */
+
+.summer-spotlight {
+    position: relative;
+    padding: 72px 0;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 12% 22%, rgba(191, 233, 255, 0.8), transparent 30%),
+        radial-gradient(circle at 88% 18%, rgba(122, 162, 223, 0.24), transparent 34%),
+        linear-gradient(135deg, #ffffff 0%, #eef8ff 54%, #ffffff 100%);
+}
+
+.summer-spotlight::before,
+.summer-spotlight::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.2) 32%, transparent 58%),
+        rgba(255, 255, 255, 0.22);
+    box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.72);
+}
+
+.summer-spotlight::before {
+    width: 150px;
+    height: 150px;
+    right: 8%;
+    top: 24px;
+}
+
+.summer-spotlight::after {
+    width: 72px;
+    height: 72px;
+    left: 7%;
+    bottom: 24px;
+}
+
+.summer-spotlight-inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 310px;
+    gap: 42px;
+    align-items: center;
+}
+
+.summer-copy {
+    max-width: 760px;
+}
+
+.summer-kicker {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 28px rgba(8, 58, 128, 0.08);
+}
+
+.summer-copy h2 {
+    max-width: 760px;
+    margin-bottom: 18px;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: clamp(2.1rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: 0;
+}
+
+.summer-copy p {
+    max-width: 720px;
+    margin-bottom: 26px;
+    color: var(--text-color);
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.summer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    align-items: center;
+}
+
+.summer-actions span {
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.summer-card {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 310px;
+    padding: 34px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.32) 28%, transparent 48%),
+        radial-gradient(circle at 72% 78%, rgba(122, 162, 223, 0.3), transparent 52%),
+        rgba(255, 255, 255, 0.72);
+    box-shadow:
+        inset 0 0 34px rgba(255, 255, 255, 0.94),
+        0 26px 60px rgba(8, 58, 128, 0.18);
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.summer-card span,
+.summer-card small {
+    color: var(--muted);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.summer-card strong {
+    display: block;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: 5.4rem;
+    line-height: 0.9;
+}
+
+.summer-card p {
+    margin: 0;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.summer-card small {
+    font-size: 0.78rem;
+}
+
+/* Welcome and trust */
+
 .welcome-section {
-    padding: 70px 0 55px;
+    padding: 70px 0 42px;
     background: #ffffff;
     text-align: center;
 }
@@ -120,7 +265,7 @@
 .hero-content {
     position: relative;
     z-index: 4;
-    max-width: 760px;
+    max-width: 800px;
 }
 
 .hero-title {
@@ -137,6 +282,36 @@
     color: var(--text-color);
     font-size: 1.05rem;
     line-height: 1.8;
+}
+
+.trust-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding: 0 0 64px;
+    background: #ffffff;
+}
+
+.trust-item {
+    padding: 24px 22px;
+    border: 1px solid rgba(8, 58, 128, 0.08);
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(8, 58, 128, 0.08);
+    text-align: center;
+}
+
+.trust-item strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+}
+
+.trust-item span {
+    color: var(--muted);
+    line-height: 1.55;
 }
 
 .btn {
@@ -447,11 +622,19 @@
 
 .discount-result b {
     display: inline-block;
-    margin: 8px 0 16px;
+    margin: 8px 0 10px;
     padding: 9px 16px;
     border-radius: 999px;
     background: var(--accent-soft);
     color: var(--dark);
+}
+
+.discount-valid {
+    display: block;
+    margin: 0 0 16px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
 }
 
 .discount-result a {
@@ -630,7 +813,28 @@
     }
 
     .welcome-section {
-        padding: 42px 0 55px;
+        padding: 42px 0 40px;
+    }
+
+    .summer-spotlight {
+        padding: 58px 0;
+    }
+
+    .summer-spotlight-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .summer-card {
+        width: min(310px, 100%);
+        min-height: 300px;
+        margin: 0 auto;
+    }
+
+    .trust-section {
+        grid-template-columns: 1fr;
+        max-width: 620px;
+        padding-bottom: 54px;
     }
 
     .form-group {
@@ -667,6 +871,36 @@
         height: 95px;
     }
 
+    .summer-spotlight {
+        padding: 44px 0;
+    }
+
+    .summer-copy h2 {
+        font-size: 2.2rem;
+    }
+
+    .summer-copy p {
+        font-size: 1rem;
+    }
+
+    .summer-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .summer-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .summer-card {
+        min-height: 260px;
+    }
+
+    .summer-card strong {
+        font-size: 4.5rem;
+    }
+
     .welcome-section::before {
         width: min(92%, 360px);
         height: 360px;
@@ -674,7 +908,7 @@
     }
 
     .welcome-section {
-        padding: 36px 0 45px;
+        padding: 36px 0 38px;
     }
 
     .info-section {

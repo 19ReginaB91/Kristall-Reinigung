@@ -284,4 +284,12 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // --- Интеграция формы (добавлено в самом конце, не меняя остальной код) ---
+    const contactForm = document.querySelector(".contact-form");
+    if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+            console.log("Formular wird an Netlify gesendet");
+        });
+    }
 });

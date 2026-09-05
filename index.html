@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kristall Reinigung Wesel</title>
+    <title>Kristall Reinigung Wesel | Fensterreinigung, Haushalt & Gewerbe</title>
+    <meta name="description" content="Kristall Reinigung in Wesel bietet Fensterreinigung, Haushaltsreinigung, Büroreinigung, Hotelreinigung und Alltagshilfe in Wesel und bis zu 60 km Umgebung.">
+    <link rel="canonical" href="https://kristallreinigung-wesel.de/">
 
     <link rel="icon" type="image/png" href="assets/images/kristall-favicon.png">
     <link rel="shortcut icon" type="image/png" href="assets/images/kristall-favicon.png">
@@ -45,55 +47,94 @@
         <img src="assets/images/start-hero.png" class="bg-image" alt="Kristall Reinigung">
         <img src="assets/images/banner-text.svg" class="banner-text" alt="Glänzende Sauberkeit ist ein Muss">
 
-        <div class="hero-bubbles" aria-hidden="true">
-            <span class="bubble bubble-1"></span>
-            <span class="bubble bubble-2"></span>
-            <span class="bubble bubble-3"></span>
-            <span class="bubble bubble-4"></span>
-        </div>
-
         <div class="foam-divider" aria-hidden="true"></div>
     </section>
 
-    <section class="summer-spotlight" id="sommer-angebot">
+    <section class="summer-spotlight" id="kristall-vorteil">
         <div class="container summer-spotlight-inner">
             <div class="summer-copy">
-                <p class="summer-kicker">Sommer-Angebot für Neukunden</p>
+                <p class="summer-kicker">Kristall-Vorteil für Neukunden</p>
 
-                <h2>Heiße Tage? Wir übernehmen das für Sie.</h2>
+                <h2>Ein kleiner Vorteil wartet auf Sie.</h2>
 
                 <p>
-                    Ob Fenster, Haushalt, Büro oder Hotel: Im Sommer ist jede Entlastung
-                    willkommen. Starten Sie unsere Rabatt-Blase und sichern Sie sich zufällig
-                    bis zu 20% Rabatt auf Ihre erste gebuchte Leistung.
+                    Für Ihre erste Reinigung haben wir eine kleine Überraschung vorbereitet.
+                    Öffnen Sie den Kristall-Vorteil und sichern Sie sich einen persönlichen
+                    Neukunden-Rabatt.
                 </p>
 
                 <div class="summer-actions">
-                    <button class="btn summer-start" type="button" id="startDiscountBubble">
-                        Rabatt-Blase starten
+                    <button
+                        class="btn summer-start"
+                        type="button"
+                        id="openDiscountWheel"
+                        aria-expanded="false"
+                        aria-controls="discountWheelPanel">
+                        Vorteil öffnen
                     </button>
 
-                    <span>Gültig bis 31.08.2026</span>
+                    <span>Freiwillig, kostenlos und unverbindlich</span>
                 </div>
             </div>
 
-            <div class="summer-card" aria-label="Bis zu 20 Prozent Rabatt für Neukunden">
-                <span>Bis zu</span>
-                <strong>20%</strong>
-                <p>Sommer-Rabatt</p>
+            <button
+                class="summer-card"
+                type="button"
+                id="openDiscountWheelCard"
+                aria-label="Kristall-Vorteil öffnen"
+                aria-controls="discountWheelPanel"
+                aria-expanded="false">
+                <span>Kleine</span>
+                <strong>Überraschung</strong>
+                <p>Kristall-Vorteil</p>
                 <small>Nur für Neukunden</small>
+            </button>
+        </div>
+
+        <div class="container discount-wheel-panel" id="discountWheelPanel" hidden>
+            <div class="discount-wheel-copy">
+                <p class="summer-kicker">Kristall-Glücksrad</p>
+                <h3>Drehen Sie einmal und erhalten Sie Ihren persönlichen Vorteil.</h3>
+                <p>
+                    Der Rabattcode wird gespeichert und bei Ihrer Anfrage automatisch
+                    mitgesendet.
+                </p>
+                <small>Nur für Neukunden. Nicht mit anderen Aktionen kombinierbar. Gültig bis 30.11.2026.</small>
+            </div>
+
+            <div class="discount-wheel-wrap">
+                <div class="discount-pointer" aria-hidden="true"></div>
+                <div class="discount-wheel" id="discountWheel" aria-hidden="true">
+                    <span style="--i: 0;">5%</span>
+                    <span style="--i: 1;">10%</span>
+                    <span style="--i: 2;">15%</span>
+                    <span style="--i: 3;">20%</span>
+                    <span style="--i: 4;">10%</span>
+                    <span style="--i: 5;">15%</span>
+                </div>
+                <button class="btn discount-spin" type="button" id="spinDiscountWheel">
+                    Glücksrad drehen
+                </button>
+            </div>
+
+            <div class="discount-result-inline" id="discountResultInline" hidden>
+                <span>Glückwunsch!</span>
+                <strong>Ihr Kristall-Vorteil: <span id="discount-value">10</span>% Rabatt</strong>
+                <p>Ihr Rabattcode für Neukunden:</p>
+                <b id="discount-code">KRISTALL-10</b>
+                <a href="#contact">Rabatt sichern / Termin vereinbaren</a>
             </div>
         </div>
     </section>
 
     <section class="welcome-section">
         <div class="hero-content container">
-            <h1 class="hero-title">Willkommen bei Kristall Reinigung</h1>
+            <h1 class="hero-title">Warum Kristall Reinigung die richtige Wahl ist</h1>
             <p class="hero-subtitle">
-                Kristall Reinigung ist ein Familienunternehmen aus Wesel. Seit 2021 unterstützen
-                wir private Haushalte, Büros, Hotels und Gewerbekunden mit zuverlässiger Reinigung.
-                Unsere Kunden schätzen gründliche Arbeit, Pünktlichkeit und klare Absprachen.
-                Wir sind in Wesel und bis zu 60 km Umgebung für Sie da.
+                Für uns endet Reinigung nicht bei sauberen Oberflächen. Wir achten darauf,
+                dass nach unserer Arbeit alles ordentlich hinterlassen wird: keine nassen Böden,
+                keine Spuren von Reinigungsmitteln und kein zusätzlicher Aufwand für Sie.
+                Wir gehen erst, wenn alles sauber, trocken und wieder an seinem Platz ist.
             </p>
             <a href="services.html" class="btn">Weiter lesen</a>
         </div>
@@ -201,21 +242,6 @@
     </section>
 </main>
 
-<div class="discount-game" id="discountGame" aria-live="polite" hidden>
-    <button class="discount-bubble" type="button" aria-label="Rabatt-Blase platzen lassen">
-        <span class="discount-bubble-text">Fang<br>die Blase!</span>
-    </button>
-
-    <div class="discount-result" hidden>
-        <span class="discount-small">Glückwunsch!</span>
-        <strong><span id="discount-value">10</span>% Sommer-Rabatt</strong>
-        <p>Ihr Rabattcode für Neukunden:</p>
-        <b id="discount-code">KRISTALL-10</b>
-        <small class="discount-valid">Gültig bis 31.08.2026</small>
-        <a href="#contact">Rabatt sichern / Termin vereinbaren</a>
-    </div>
-</div>
-
 <footer class="footer">
     <div class="container footer-content">
         <div class="footer-logo">
@@ -241,7 +267,7 @@
     </div>
 
     <div class="footer-bottom">
-        <p>© 2025 Kristall Reinigung All rights reserved</p>
+        <p>© 2026 Kristall Reinigung All rights reserved</p>
     </div>
 </footer>
 

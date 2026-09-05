@@ -17,32 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const hero = document.querySelector(".hero");
-    const bubbles = document.querySelectorAll(".bubble");
-
-    if (hero && bubbles.length) {
-        hero.addEventListener("mousemove", (event) => {
-            const rect = hero.getBoundingClientRect();
-            const x = (event.clientX - rect.left) / rect.width - 0.5;
-            const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-            bubbles.forEach((bubble, index) => {
-                const strength = 10 + index * 5;
-                bubble.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
-            });
-        });
-
-        hero.addEventListener("mouseleave", () => {
-            bubbles.forEach((bubble) => {
-                bubble.style.transform = "translate(0, 0)";
-            });
-        });
-    }
-
-    const discountGame = document.getElementById("discountGame");
-    const startDiscountBubble = document.getElementById("startDiscountBubble");
-    const discountBubble = document.querySelector(".discount-bubble");
-    const discountResult = document.querySelector(".discount-result");
+    const discountWheelPanel = document.getElementById("discountWheelPanel");
+    const openDiscountWheel = document.getElementById("openDiscountWheel");
+    const openDiscountWheelCard = document.getElementById("openDiscountWheelCard");
+    const discountWheel = document.getElementById("discountWheel");
+    const spinDiscountWheel = document.getElementById("spinDiscountWheel");
+    const discountResult = document.getElementById("discountResultInline");
     const discountValue = document.getElementById("discount-value");
     const discountCode = document.getElementById("discount-code");
 
@@ -50,7 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedDiscountBox = document.getElementById("savedDiscountBox");
     const savedDiscountCode = document.getElementById("savedDiscountCode");
 
+    const discountStorageKey = "kristallWheelDiscount";
+    localStorage.removeItem("kristallDiscount");
     let discountWasOpened = false;
+    let wheelWasSpun = false;
     let savedBadgeTimer = null;
 
     function getDiscountCode(discount) {
@@ -58,23 +41,63 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function getRandomDiscount() {
-        const discounts = [5, 10, 15, 20];
+        const discounts = [5, 10, 15, 20, 10, 15];
         const randomIndex = Math.floor(Math.random() * discounts.length);
 
-        return String(discounts[randomIndex]);
+        return {
+            value: String(discounts[randomIndex]),
+            index: randomIndex,
+            rotation: getWheelRotation(randomIndex)
+        };
     }
 
-    function createDiscountCloseButton() {
-        if (!discountResult || discountResult.querySelector(".discount-close")) return;
+    function getWheelRotation(index) {
+        const segmentAngle = 60;
 
-        const closeButton = document.createElement("button");
-        closeButton.type = "button";
-        closeButton.className = "discount-close";
-        closeButton.setAttribute("aria-label", "Rabattfenster schließen");
-        closeButton.innerHTML = "&times;";
+        return 360 * 5 + (360 - index * segmentAngle);
+    }
 
-        discountResult.prepend(closeButton);
-        closeButton.addEventListener("click", closeDiscountWindow);
+    function saveDiscount(discount) {
+        const savedDiscount = {
+            value: discount.value,
+            code: getDiscountCode(discount.value),
+            index: discount.index,
+            rotation: discount.rotation
+        };
+
+        localStorage.setItem(discountStorageKey, JSON.stringify(savedDiscount));
+
+        return savedDiscount;
+    }
+
+    function readSavedDiscount() {
+        const savedDiscount = localStorage.getItem(discountStorageKey);
+
+        if (!savedDiscount) return null;
+
+        try {
+            const parsedDiscount = JSON.parse(savedDiscount);
+
+            if (parsedDiscount && parsedDiscount.value) {
+                return {
+                    value: String(parsedDiscount.value),
+                    code: parsedDiscount.code || getDiscountCode(parsedDiscount.value),
+                    index: Number.isInteger(parsedDiscount.index) ? parsedDiscount.index : 0,
+                    rotation: Number.isFinite(parsedDiscount.rotation)
+                        ? parsedDiscount.rotation
+                        : getWheelRotation(Number.isInteger(parsedDiscount.index) ? parsedDiscount.index : 0)
+                };
+            }
+        } catch (error) {
+            return {
+                value: savedDiscount,
+                code: getDiscountCode(savedDiscount),
+                index: 0,
+                rotation: getWheelRotation(0)
+            };
+        }
+
+        return null;
     }
 
     function createSavedDiscountBadge(code) {
@@ -88,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         badge.innerHTML = `
             <strong>Rabatt gespeichert: ${code}</strong>
-            <span>Der Sommer-Rabatt wird bei Ihrer Anfrage automatisch mitgesendet.</span>
+            <span>Der Kristall-Vorteil wird bei Ihrer Anfrage automatisch mitgesendet.</span>
         `;
 
         badge.hidden = false;
@@ -122,142 +145,100 @@ document.addEventListener("DOMContentLoaded", () => {
         return code;
     }
 
-    function createSplash(button) {
-        const rect = button.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-
-        for (let i = 0; i < 22; i++) {
-            const splash = document.createElement("span");
-            splash.className = "bubble-splash";
-
-            const angle = (Math.PI * 2 * i) / 22;
-            const distance = 55 + Math.random() * 70;
-            const moveX = Math.cos(angle) * distance;
-            const moveY = Math.sin(angle) * distance;
-
-            splash.style.left = `${centerX}px`;
-            splash.style.top = `${centerY}px`;
-            splash.style.setProperty("--move-x", `${moveX}px`);
-            splash.style.setProperty("--move-y", `${moveY}px`);
-
-            document.body.appendChild(splash);
-
-            setTimeout(() => {
-                splash.remove();
-            }, 900);
-        }
-    }
-
-    function startDiscountGame() {
-        if (!discountGame || discountWasOpened) return;
-
-        discountGame.hidden = false;
-
-        if (discountBubble) {
-            discountBubble.classList.remove("is-popped");
-        }
-
-        if (startDiscountBubble) {
-            startDiscountBubble.textContent = "Rabatt-Blase läuft";
-            startDiscountBubble.disabled = true;
-            startDiscountBubble.setAttribute("aria-disabled", "true");
-        }
-    }
-
     function openDiscountWindow() {
         if (discountWasOpened) return;
 
         discountWasOpened = true;
 
-        const discount = getRandomDiscount();
-        localStorage.setItem("kristallDiscount", discount);
-
-        fillDiscountEverywhere(discount);
-
-        if (discountBubble) {
-            createSplash(discountBubble);
-            discountBubble.classList.add("is-popped");
-        }
-
-        if (discountResult) {
-            createDiscountCloseButton();
-            discountResult.hidden = false;
+        if (discountWheelPanel) {
+            discountWheelPanel.hidden = false;
 
             requestAnimationFrame(() => {
-                discountResult.classList.add("is-visible");
+                discountWheelPanel.classList.add("is-open");
             });
         }
 
-        if (startDiscountBubble) {
-            startDiscountBubble.textContent = "Rabatt gespeichert";
-            startDiscountBubble.disabled = true;
-            startDiscountBubble.setAttribute("aria-disabled", "true");
-        }
-    }
-
-    function closeDiscountWindow() {
-        const savedDiscount = localStorage.getItem("kristallDiscount");
-
-        if (discountResult) {
-            discountResult.classList.remove("is-visible");
-
-            setTimeout(() => {
-                discountResult.hidden = true;
-            }, 250);
-        }
-
-        if (discountGame) {
-            setTimeout(() => {
-                discountGame.hidden = true;
-            }, 260);
-        }
-
-        if (savedDiscount) {
-            const code = fillDiscountEverywhere(savedDiscount);
-            createSavedDiscountBadge(code);
-        }
-    }
-
-    const savedDiscount = localStorage.getItem("kristallDiscount");
-
-    if (savedDiscount) {
-        const code = fillDiscountEverywhere(savedDiscount);
-        discountWasOpened = true;
-
-        if (discountGame) {
-            discountGame.hidden = true;
-        }
-
-        if (discountBubble) {
-            discountBubble.classList.add("is-popped");
-        }
-
-        if (startDiscountBubble) {
-            startDiscountBubble.textContent = "Rabatt bereits gespeichert";
-            startDiscountBubble.disabled = true;
-            startDiscountBubble.setAttribute("aria-disabled", "true");
-        }
-
-        createSavedDiscountBadge(code);
-    }
-
-    if (startDiscountBubble) {
-        startDiscountBubble.addEventListener("click", startDiscountGame);
-    }
-
-    if (discountBubble) {
-        discountBubble.addEventListener("click", (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            openDiscountWindow();
+        [openDiscountWheel, openDiscountWheelCard].forEach((button) => {
+            if (!button) return;
+            button.setAttribute("aria-expanded", "true");
         });
 
-        discountBubble.addEventListener("touchstart", (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            openDiscountWindow();
-        }, { passive: false });
+        if (openDiscountWheel) {
+            openDiscountWheel.textContent = "Vorteil geöffnet";
+        }
+
+        if (discountWheelPanel) {
+            discountWheelPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    }
+
+    function spinWheel() {
+        if (wheelWasSpun) return;
+
+        wheelWasSpun = true;
+
+        const discount = saveDiscount(getRandomDiscount());
+        fillDiscountEverywhere(discount.value);
+
+        if (discountWheel) {
+            discountWheel.style.transform = `rotate(${discount.rotation}deg)`;
+        }
+
+        if (spinDiscountWheel) {
+            spinDiscountWheel.disabled = true;
+            spinDiscountWheel.textContent = "Vorteil gespeichert";
+        }
+
+        setTimeout(() => {
+            if (discountResult) discountResult.hidden = false;
+            createSavedDiscountBadge(discount.code);
+        }, 3200);
+    }
+
+    const savedDiscount = readSavedDiscount();
+
+    if (savedDiscount) {
+        fillDiscountEverywhere(savedDiscount.value);
+        discountWasOpened = true;
+        wheelWasSpun = true;
+
+        if (discountWheelPanel) {
+            discountWheelPanel.hidden = false;
+            discountWheelPanel.classList.add("is-open");
+        }
+
+        [openDiscountWheel, openDiscountWheelCard].forEach((button) => {
+            if (!button) return;
+            button.setAttribute("aria-expanded", "true");
+        });
+
+        if (openDiscountWheel) {
+            openDiscountWheel.textContent = "Vorteil gespeichert";
+        }
+
+        if (spinDiscountWheel) {
+            spinDiscountWheel.disabled = true;
+            spinDiscountWheel.textContent = "Vorteil gespeichert";
+        }
+
+        if (discountWheel) {
+            discountWheel.style.transform = `rotate(${savedDiscount.rotation}deg)`;
+        }
+
+        if (discountResult) discountResult.hidden = false;
+        createSavedDiscountBadge(savedDiscount.code);
+    }
+
+    if (openDiscountWheel) {
+        openDiscountWheel.addEventListener("click", openDiscountWindow);
+    }
+
+    if (openDiscountWheelCard) {
+        openDiscountWheelCard.addEventListener("click", openDiscountWindow);
+    }
+
+    if (spinDiscountWheel) {
+        spinDiscountWheel.addEventListener("click", spinWheel);
     }
 
     const servicePanels = document.querySelectorAll(".service-panel");
